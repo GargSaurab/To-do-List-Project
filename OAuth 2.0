@@ -14,6 +14,6 @@ this other authoriaztion app or server will be used as the security layer withou
 -> It dosen't a specific format of access of token but JWT format is often used in most cases, which token issuer to include data in the token so these access token may have expiration date.
 
 
-
+ ![OAuth 2.0 request flow diagram](https://github.com/GargSaurab/To-do-List-Project/blob/main/Bouali%20Ali%20-%20OAuth2%20&%20Spring%20boot%203%20&%20Social%20login%20never%20been%20easier%20%5B2WNjmT2z7c4%20-%201079x607%20-%2010m24s%5D.png?raw=true)
 
     
