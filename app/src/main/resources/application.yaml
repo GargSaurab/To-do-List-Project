@@ -1,0 +1,12 @@
+spring:
+  application:
+    name: "app"
+  datasource:
+    url: "jdbc:postgresql://localhost:5432/todolist?createDatabaseIfNotExist=true&useSSL=false&allowPublicKeyRetrieval=true"
+    username: "Saurabh"
+    password: "Saurabh88"
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+  port: 9090
