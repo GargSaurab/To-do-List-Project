@@ -1,7 +1,10 @@
 package com.app.Dao;
 
+import com.app.Entity.ToDo;
 import com.app.Entity.User;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
 
-public interface UserRepository extends JpaRepository<Integer, User> {
+@Repository
+public interface UserRepository extends JpaRepository<ToDo, Integer> {
 }

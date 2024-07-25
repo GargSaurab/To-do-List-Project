@@ -2,11 +2,17 @@ spring:
   application:
     name: "app"
   datasource:
-    url: "jdbc:postgresql://localhost:5432/todolist?createDatabaseIfNotExist=true&useSSL=false&allowPublicKeyRetrieval=true"
-    username: "Saurabh"
-    password: "Saurabh88"
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://localhost:5432/todoapp
+    username: Saurabh
+    password: Saurabh88
   jpa:
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
     hibernate:
       ddl-auto: update
     show-sql: true
+
+Server:
   port: 9090
+
+
