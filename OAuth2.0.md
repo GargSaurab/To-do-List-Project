@@ -7,10 +7,10 @@ resources on behalf of the user, without ever sharing the user's credentials.
 So, what it meana is the application which uses OAuth dosen't have to manage or authorize the user they will be managed by the other web apps and 
 this other authoriaztion app or server will be used as the security layer without giving credentials to the application.
 
-OAuth 2.0 for Authorization
+* OAuth 2.0 for Authorization
 OAuth 2.0 is fundamentally about authorization. It lets a user grant a third-party application access to their resources without sharing credentials. The user authenticates with the service provider, and the service provider issues an access token that the third-party application can use to access specific resources.
 
-OpenID Connect (OIDC) for Authentication
+* OpenID Connect (OIDC) for Authentication
 OIDC is built on top of OAuth 2.0 and is explicitly designed for authentication. It provides an ID token that includes information about the authenticated user. This allows applications to verify the user's identity and obtain basic profile information.
 
 * Principles of OAuth2.0
