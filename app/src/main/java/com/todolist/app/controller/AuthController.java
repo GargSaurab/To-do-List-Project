@@ -64,7 +64,7 @@ public class AuthController {
                  = new UsernamePasswordAuthenticationToken(name, password);
 
          try{
-             manager.authenticate(authentication);
+             authenticationManager.authenticate(authentication);
           }catch(Exception exception)
          {
              throw new BadCredentialsException("error");
