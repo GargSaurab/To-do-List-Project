@@ -12,7 +12,5 @@ spring:
       ddl-auto: update
     show-sql: true
 
-Server:
-  port: 9090
 
 
