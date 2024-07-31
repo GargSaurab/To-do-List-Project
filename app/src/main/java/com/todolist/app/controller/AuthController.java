@@ -67,7 +67,7 @@ public class AuthController {
              authenticationManager.authenticate(authentication);
           }catch(Exception exception)
          {
-             throw new BadCredentialsException("error");
+             throw new BadCredentialsException("Wrong Input");
          }
      }
 }
