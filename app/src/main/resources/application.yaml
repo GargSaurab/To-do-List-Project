@@ -12,5 +12,7 @@ spring:
       ddl-auto: update
     show-sql: true
 
-
-
+user:
+  validation:
+    emailIdPattern: "^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,6}$"
+    passwordPattern: "^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[@$!%*?&])[A-Za-z\\d@$!%*?&]{8,}$"

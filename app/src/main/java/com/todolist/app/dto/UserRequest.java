@@ -7,7 +7,12 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class UserRequest {
 
+    @NotNull(message = "Username can't be null")
     private String username;
-    private String email;
+    @NotEmpty(message = "Email is required")
+    @Email(message = "EmailId should be valid")
+    private String emailId;
+    @NotEmpty(message = "Password is required")
+    @
     private String password;
 }
