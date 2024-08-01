@@ -10,7 +10,7 @@ import org.springframework.context.annotation.Bean;
 public class TodoApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(AppApplication.class, args);
+		SpringApplication.run(TodoApplication.class, args);
 	}
 
 	@Bean

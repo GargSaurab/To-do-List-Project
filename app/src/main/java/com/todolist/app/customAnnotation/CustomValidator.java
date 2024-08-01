@@ -1,6 +1,11 @@
 package com.todolist.app.customAnnotation;
 
-public class CustomeValidator implements ConstraintValidator<ValidPattern, String> {
+import org.springframework.beans.factory.annotation.Value;
+
+import jakarta.validation.ConstraintValidator;
+import jakarta.validation.ConstraintValidatorContext;
+
+public class CustomValidator implements ConstraintValidator<ValidPattern, String> {
 
     @Value("${user.validation.emailIdPattern}")
      private String emailIdPattern;
@@ -11,7 +16,7 @@ public class CustomeValidator implements ConstraintValidator<ValidPattern, Strin
      private String pattern;
 
      @Override
-     public void initilalize(ValidPattern constraintAnnotation)
+     public void initialize(ValidPattern constraintAnnotation)
      {
          switch(constraintAnnotation.type())
          {
@@ -27,9 +32,19 @@ public class CustomeValidator implements ConstraintValidator<ValidPattern, Strin
               throw new IllegalArgumentException("Wrong pattern type");
 
          }
-     }
+       }
 
      @Override
-     public boolean isValid(String value, ConstraintVaidator)
+     public boolean isValid(String value, ConstraintValidatorContext  context)
+     {
+       // Also checks if value is null or empty
+        if(value == null || value.isEmpty()){
+              return false;
+        }
+
+        return value.matches(pattern);
+     } 
+ 
+   
 
 }

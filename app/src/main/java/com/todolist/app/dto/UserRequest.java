@@ -1,5 +1,8 @@
 package com.todolist.app.dto;
 
+import com.todolist.app.customAnnotation.ValidPattern;
+
+import jakarta.validation.constraints.NotNull;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -9,10 +12,8 @@ public class UserRequest {
 
     @NotNull(message = "Username can't be null")
     private String username;
-    @NotEmpty(message = "Email is required")
-    @Email(message = "EmailId should be valid")
+    @ValidPattern(type = "emailId", message = "EmailId should be in proper format and can't be empty")
     private String emailId;
-    @NotEmpty(message = "Password is required")
-    @
+    @ValidPattern(type = "password", message = "Password is weak make it alphaumeric and include special characters")
     private String password;
 }
