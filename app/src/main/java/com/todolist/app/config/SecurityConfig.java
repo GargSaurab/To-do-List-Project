@@ -30,8 +30,6 @@ public class SecurityConfig {
 
     private final UserDetailsService userDetailsService;
 
-    private final PasswordEncoder passwordEncoder;
-
     private Logger logger = LoggerFactory.getLogger(SecurityConfig.class);
 
     @Bean
@@ -71,7 +69,7 @@ public class SecurityConfig {
     {
         DaoAuthenticationProvider doDaoAtuthenticationProvider = new DaoAuthenticationProvider();
         doDaoAtuthenticationProvider.setUserDetailsService(userDetailsService);
-        doDaoAtuthenticationProvider.setPasswordEncoder(passwordEncoder);
+        doDaoAtuthenticationProvider.setPasswordEncoder(passwordEncoder());
         return doDaoAtuthenticationProvider;
     }
 }

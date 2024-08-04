@@ -1,9 +1,8 @@
 package com.todolist.app.customAnnotation;
 
-import org.springframework.beans.factory.annotation.Value;
-
 import jakarta.validation.ConstraintValidator;
 import jakarta.validation.ConstraintValidatorContext;
+import org.springframework.beans.factory.annotation.Value;
 
 public class CustomValidator implements ConstraintValidator<ValidPattern, String> {
 
@@ -43,8 +42,6 @@ public class CustomValidator implements ConstraintValidator<ValidPattern, String
         }
 
         return value.matches(pattern);
-     } 
- 
-   
+     }
 
 }
