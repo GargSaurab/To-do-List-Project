@@ -8,11 +8,11 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/todolist/app/config/SecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/todolist/app/config/SecurityConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/todolist/app/customAnnotation/CustomValidator.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/todolist/app/customAnnotation/CustomValidator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/todolist/app/customAnnotation/ValidPattern.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/todolist/app/customAnnotation/ValidPattern.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/todolist/app/dao/UserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/todolist/app/dao/UserRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/todolist/app/security/JwtHelper.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/todolist/app/security/JwtHelper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/todolist/app/dto/UserRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/todolist/app/dto/UserRequest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/todolist/app/service/CustomUserDetailsService.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/todolist/app/service/CustomUserDetailsService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/resources/application.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/resources/application.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/todolist/app/service/UserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/todolist/app/service/UserServiceImpl.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -42,6 +42,9 @@
     &quot;accountId&quot;: &quot;e0fd15f5-2814-408e-b67b-276b7ca4f5c7&quot;
   }
 }</component>
+  <component name="MavenRunner">
+    <option name="jreName" value="#JAVA_HOME" />
+  </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 2
 }</component>
@@ -58,12 +61,13 @@
     "Application.ToDoApplication.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "git-widget-placeholder": "main",
+    "ignore.virus.scanning.warn.message": "true",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/HP/Downloads/app",
+    "last_opened_file_path": "D:/Project/To-do-List-Project",
     "project.structure.last.edited": "Project",
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "preferences.pluginManager"
+    "settings.editor.selected.configurable": "editor.preferences.fonts.default"
   }
 }]]></component>
   <component name="RunManager">

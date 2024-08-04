@@ -24,7 +24,11 @@ public class UserServiceImpl implements UserService{
     @Override
     public void register(UserRequest registerUser) {
 
+        System.out.println(registerUser.toString());
+
         User user = mapper.map(registerUser, User.class);
+
+        System.out.println(registerUser.toString());
 
         user.setPassword(encoder.encode(user.getPassword()));
 

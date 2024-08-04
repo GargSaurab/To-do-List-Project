@@ -6,6 +6,7 @@ import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
 import jakarta.validation.Constraint;
+import jakarta.validation.Payload;
 
 @Constraint(validatedBy = CustomValidator.class)// Specifies the validator class
 // Specifies who can use it .RUNTIME means both compiler and JVM can use it with the help of reflection
@@ -17,5 +18,7 @@ public @interface ValidPattern {
 
     String type();
     String message() default "Invalid format"; // default keyword will provide
+    Class<?>[] groups() default {}; // This is where you define validation groups
+    Class<? extends Payload>[] payload() default {};
 
 }

@@ -13,7 +13,7 @@ public class UserRequest {
     @NotNull(message = "Username can't be null")
     private String username;
     @ValidPattern(type = "emailId", message = "EmailId should be in proper format and can't be empty")
-    private String emailId;
+    private String email;
     @ValidPattern(type = "password", message = "Password is weak make it alphaumeric and include special characters")
     private String password;
 }
