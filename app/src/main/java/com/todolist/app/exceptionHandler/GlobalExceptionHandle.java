@@ -20,6 +20,7 @@ public class GlobalExceptionHandle {
 
         response.info.code = StatusCode.NOt_Found;
         response.info.message = exception.getMessage();
+        exception.printStackTrace();
         return new ResponseEntity<>(response, HttpStatus.OK);
     }
 
@@ -30,6 +31,7 @@ public class GlobalExceptionHandle {
 
         response.info.code = StatusCode.Bad_Request;
         response.info.message = exception.getMessage();
+        exception.printStackTrace();
         return new ResponseEntity<>(response, HttpStatus.OK);
     }
     @ExceptionHandler(BadCredentialsException.class)
@@ -39,6 +41,7 @@ public class GlobalExceptionHandle {
 
         response.info.code = StatusCode.Bad_Request;
         response.info.message = exception.getMessage();
+        exception.printStackTrace();
         return new ResponseEntity<>(response, HttpStatus.OK);
     }
 
@@ -49,6 +52,7 @@ public class GlobalExceptionHandle {
 
         response.info.code = StatusCode.server_error;
         response.info.message = exception.getMessage();
+        exception.printStackTrace();
         return new ResponseEntity<>(response, HttpStatus.OK);
     }
 }

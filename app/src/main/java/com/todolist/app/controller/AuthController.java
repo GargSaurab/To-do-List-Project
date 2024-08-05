@@ -14,6 +14,7 @@ import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -30,6 +31,8 @@ public class AuthController {
 
     private final AuthenticationManager authenticationManager;
 
+    private final PasswordEncoder encoder;
+
     private final JwtHelper jwtHelper;
 
     public Logger logger = LoggerFactory.getLogger(AuthController.class);
@@ -42,10 +45,14 @@ public class AuthController {
 
           // get userDetails
          UserDetails userDetails = userDetailsService.loadUserByUsername(request.getName());
+        if(encoder.matches(userDetails.getPassword(), request.getPassword())) {
+            System.out.println("matched");
+        }
+         else System.out.println("failed");
+
 
          // generate token
          String token = this.jwtHelper.generateToken(userDetails);
-
 
 
          JwtResponse response = JwtResponse.builder()
