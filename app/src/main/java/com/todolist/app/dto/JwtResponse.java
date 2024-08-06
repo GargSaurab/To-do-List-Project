@@ -15,6 +15,6 @@ import java.time.LocalDateTime;
 public class JwtResponse {
 
     private String jwtToken;
-    private String usernName;
-    private LocalDateTime time = LocalDateTime.now();
+    private String userName;
+    private LocalDateTime time;
 }

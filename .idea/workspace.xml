@@ -5,9 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="aaa49c0d-b302-4759-aab5-cb70b81b1ada" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/todolist/app/config/SecurityBeans.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/todolist/app/controller/AuthController.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/todolist/app/controller/AuthController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/todolist/app/exceptionHandler/GlobalExceptionHandle.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/todolist/app/exceptionHandler/GlobalExceptionHandle.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/todolist/app/dto/JwtResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/todolist/app/dto/JwtResponse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/todolist/app/entity/UserCustomDetails.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/todolist/app/entity/UserCustomDetails.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/todolist/app/security/JwtHelper.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/todolist/app/security/JwtHelper.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -53,16 +56,16 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
-    "Application.ToDoApplication.executor": "Debug",
+    "Application.ToDoApplication.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "git-widget-placeholder": "main",
     "ignore.virus.scanning.warn.message": "true",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "D:/Project/To-do-List-Project",
+    "last_opened_file_path": "D:/Project/BankApplicationJpa-SecurityPractice",
     "project.structure.last.edited": "Project",
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "editor.preferences.fonts.default"
+    "settings.editor.selected.configurable": "reference.settings.project.maven.repository.indices"
   }
 }]]></component>
   <component name="RunManager">
@@ -102,26 +105,6 @@
         <line-breakpoint enabled="true" type="java-line">
           <url>jar://$MAVEN_REPOSITORY$/org/springframework/security/spring-security-core/6.3.1/spring-security-core-6.3.1-sources.jar!/org/springframework/security/authentication/dao/DaoAuthenticationProvider.java</url>
           <option name="timeStamp" value="1" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/todolist/app/controller/AuthController.java</url>
-          <line>46</line>
-          <option name="timeStamp" value="4" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/todolist/app/controller/AuthController.java</url>
-          <line>43</line>
-          <option name="timeStamp" value="5" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/todolist/app/controller/AuthController.java</url>
-          <line>73</line>
-          <option name="timeStamp" value="6" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/todolist/app/controller/AuthController.java</url>
-          <line>69</line>
-          <option name="timeStamp" value="7" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

@@ -1,5 +1,6 @@
 package com.todolist.app.entity;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.springframework.security.core.GrantedAuthority;
@@ -9,13 +10,10 @@ import java.util.Collection;
 import java.util.List;
 
 @Data
-@NoArgsConstructor
+@AllArgsConstructor
 public class UserCustomDetails implements UserDetails {
 
     private User user;
-
-    public UserCustomDetails(User user) {
-    }
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {

@@ -29,7 +29,7 @@ public class AuthController {
 
     private final UserDetailsService userDetailsService;
 
-    private final AuthenticationManager authenticationManager;
+    private final AuthenticationManager manager;
 
     private final PasswordEncoder encoder;
 
@@ -57,8 +57,8 @@ public class AuthController {
 
          JwtResponse response = JwtResponse.builder()
                  .jwtToken(token)
-                 .usernName(userDetails.getUsername())
-//                 .time(LocalDateTime.now())
+                 .userName(userDetails.getUsername())
+                 .time(LocalDateTime.now())
                  .build();
 
          return new ResponseEntity<>(response, HttpStatus.OK);
@@ -70,11 +70,14 @@ public class AuthController {
          UsernamePasswordAuthenticationToken authentication
                  = new UsernamePasswordAuthenticationToken(name, password);
 
-         try{
-             authenticationManager.authenticate(authentication);
-          }catch(Exception exception)
-         {
-             throw new BadCredentialsException("Wrong Input");
+         try {
+             manager.authenticate(authentication);
+         } catch (BadCredentialsException e) {
+             logger.error("Bad credentials for user: {}", name);
+             throw new BadCredentialsException(" Wrong credentials");
+         } catch (Exception e) {
+             logger.error("Authentication failed for user: {}", name, e);
+             throw new RuntimeException("Some exception occure in Server");
          }
      }
 }
