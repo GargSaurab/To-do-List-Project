@@ -1,5 +1,6 @@
 package com.todolist.app.dto;
 
+import com.todolist.app.customAnnotation.ValidPattern;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;

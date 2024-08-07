@@ -5,12 +5,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="aaa49c0d-b302-4759-aab5-cb70b81b1ada" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/todolist/app/config/SecurityBeans.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Todo List Project Documentation.docx" beforeDir="false" afterPath="$PROJECT_DIR$/Todo List Project Documentation.docx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/todolist/app/controller/AuthController.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/todolist/app/controller/AuthController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/todolist/app/dto/JwtResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/todolist/app/dto/JwtResponse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/todolist/app/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/todolist/app/controller/UserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/todolist/app/dto/JwtRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/todolist/app/dto/JwtRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/todolist/app/dto/UserDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/todolist/app/dto/UserDto.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/todolist/app/entity/UserCustomDetails.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/todolist/app/entity/UserCustomDetails.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/todolist/app/exceptionHandler/GlobalExceptionHandle.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/todolist/app/exceptionHandler/GlobalExceptionHandle.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/todolist/app/security/JwtHelper.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/todolist/app/security/JwtHelper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/todolist/app/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/todolist/app/service/UserService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/todolist/app/service/UserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/todolist/app/service/UserServiceImpl.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -105,6 +110,11 @@
         <line-breakpoint enabled="true" type="java-line">
           <url>jar://$MAVEN_REPOSITORY$/org/springframework/security/spring-security-core/6.3.1/spring-security-core-6.3.1-sources.jar!/org/springframework/security/authentication/dao/DaoAuthenticationProvider.java</url>
           <option name="timeStamp" value="1" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/todolist/app/service/CustomUserDetailsService.java</url>
+          <line>29</line>
+          <option name="timeStamp" value="2" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

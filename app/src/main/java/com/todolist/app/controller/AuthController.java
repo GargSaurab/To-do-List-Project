@@ -45,15 +45,9 @@ public class AuthController {
 
           // get userDetails
          UserDetails userDetails = userDetailsService.loadUserByUsername(request.getName());
-        if(encoder.matches(userDetails.getPassword(), request.getPassword())) {
-            System.out.println("matched");
-        }
-         else System.out.println("failed");
-
 
          // generate token
          String token = this.jwtHelper.generateToken(userDetails);
-
 
          JwtResponse response = JwtResponse.builder()
                  .jwtToken(token)
@@ -77,7 +71,7 @@ public class AuthController {
              throw new BadCredentialsException(" Wrong credentials");
          } catch (Exception e) {
              logger.error("Authentication failed for user: {}", name, e);
-             throw new RuntimeException("Some exception occure in Server");
+             throw new RuntimeException("Some error occured in Server");
          }
      }
 }

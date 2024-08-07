@@ -1,9 +1,12 @@
 package com.todolist.app.security;
 
+import com.todolist.app.entity.User;
+import com.todolist.app.entity.UserCustomDetails;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
 import io.jsonwebtoken.security.Keys;
+import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Component;
 
@@ -61,17 +64,28 @@ public class JwtHelper{
     public String generateToken(UserDetails userDetails)
     {
          Map<String, Object> claims = new HashMap<>();
-         claims.put("Request Time", new Date());
+         claims.put("msg", "It's a useless token nothing to see here, shuu!!");
 
-         return doGenerationToken(claims, userDetails.getUsername());
+         if(userDetails instanceof UserCustomDetails)
+         {
+             UserCustomDetails customDetails = (UserCustomDetails) userDetails;
+             User user = customDetails.getUser();
+
+             return doGenerationToken(claims, userDetails.getUsername(), user);
+         }else {
+
+             throw new IllegalArgumentException("Unsupported UserDetails implementation");
+         }
+
     }
 
     // Sets all clains and data in token
-    private String doGenerationToken(Map<String, Object> claims, String subject)
+    private String doGenerationToken(Map<String, Object> claims, String subject, User user)
     {
         return Jwts.builder()
                 .setClaims(claims)
                 .setSubject(subject)
+                .setId(user.getId().toString())
                 .setIssuedAt(new Date(System.currentTimeMillis()))
                 .setExpiration(new Date(System.currentTimeMillis() + tokenValidity))
                 .signWith(jwtSecret)

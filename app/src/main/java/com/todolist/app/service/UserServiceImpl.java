@@ -4,12 +4,15 @@ import com.todolist.app.customException.InvalidInputException;
 import com.todolist.app.customException.ResourceNotFoundException;
 import com.todolist.app.dao.UserRepository;
 import com.todolist.app.dto.PasswordReset;
+import com.todolist.app.dto.UserDto;
 import com.todolist.app.dto.UserRequest;
 import com.todolist.app.entity.User;
 import lombok.RequiredArgsConstructor;
 import org.modelmapper.ModelMapper;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
+
+import java.util.UUID;
 
 @Service
 @RequiredArgsConstructor
@@ -41,10 +44,10 @@ public class UserServiceImpl implements UserService{
         User user = userRepo.findById(userPasswordReset.getId())
                 .orElseThrow(() -> new RuntimeException("Some unusual server ERRORR!!!!"));
 
-         String oldPassword = encoder.encode(userPasswordReset.getOldPassword());
-
          String newPassword = encoder.encode(userPasswordReset.getNewPassword());
-        if(oldPassword.equals(user.getPassword()))
+
+         // Validating if the user put the right old password or not if wrong process failed
+        if(encoder.matches(user.getPassword(), userPasswordReset.getOldPassword()))
         {
             user.setPassword(newPassword);
         }else {
@@ -53,5 +56,17 @@ public class UserServiceImpl implements UserService{
 
         userRepo.save(user);
 
+    }
+
+    @Override
+    public UserDto viewUser(UUID id) {
+
+        // Fetching user via Id which is extracted throgh Jwt
+        User user = userRepo.findById(id)
+                .orElseThrow(() -> new RuntimeException());
+
+        UserDto userDto = mapper.map(user, UserDto.class);
+
+        return userDto;
     }
 }

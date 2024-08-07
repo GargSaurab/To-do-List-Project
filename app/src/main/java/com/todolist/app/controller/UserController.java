@@ -1,21 +1,15 @@
 package com.todolist.app.controller;
 
+import com.todolist.app.customException.InvalidInputException;
+import com.todolist.app.dto.*;
+import com.todolist.app.service.UserService;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
-import com.todolist.app.customException.InvalidInputException;
-import com.todolist.app.dto.CommonResponse;
-import com.todolist.app.dto.PasswordReset;
-import com.todolist.app.dto.StatusCode;
-import com.todolist.app.dto.UserRequest;
-import com.todolist.app.service.UserService;
-
-import jakarta.validation.Valid;
+import java.util.UUID;
 
 @RestController
 @RequestMapping("/user")
@@ -48,6 +42,25 @@ public class UserController {
         }catch(InvalidInputException ie)
         {
             throw ie;
+        }catch(Exception exception)
+        {
+            throw exception;
+        }
+    }
+
+    @GetMapping("/view")
+    public ResponseEntity viewUser(@RequestBody UUID id)
+    {
+        CommonResponse response = new CommonResponse();
+
+        try{
+            UserDto user = userSrv.viewUser(id);
+
+            response.info.code = StatusCode.success;
+            response.info.message = String.format("%s's data fetched", user.getUsername());
+            response.data = user;
+
+            return new ResponseEntity(response, HttpStatus.OK);
         }catch(Exception exception)
         {
             throw exception;

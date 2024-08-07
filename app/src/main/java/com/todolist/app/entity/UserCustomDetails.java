@@ -13,7 +13,7 @@ import java.util.List;
 @AllArgsConstructor
 public class UserCustomDetails implements UserDetails {
 
-    private User user;
+    private final User user;
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
@@ -30,6 +30,9 @@ public class UserCustomDetails implements UserDetails {
         return this.user.getUsername();
     }
 
-
+    public User getUser()
+    {
+        return this.user;
+    }
 
 }

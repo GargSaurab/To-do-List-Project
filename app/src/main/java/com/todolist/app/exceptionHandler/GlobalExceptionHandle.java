@@ -51,7 +51,8 @@ public class GlobalExceptionHandle {
         CommonResponse response = new CommonResponse();
 
         response.info.code = StatusCode.server_error;
-        response.info.message = exception.getMessage();
+        // Sorry for the joke because I am bored and can't think of anything else and kind a procastinating too
+        response.info.message = "Well! bad luck because I also don't what happened there";
         exception.printStackTrace();
         return new ResponseEntity<>(response, HttpStatus.OK);
     }
