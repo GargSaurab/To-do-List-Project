@@ -1,4 +1,4 @@
-package com.todolist.app.exceptionHandler;
+package com.todolist.app.aop;
 
 import com.todolist.app.customException.InvalidInputException;
 import com.todolist.app.customException.ResourceNotFoundException;
