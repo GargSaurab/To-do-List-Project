@@ -2,7 +2,7 @@ package com.todolist.app.controller;
 
 import com.todolist.app.dto.JwtRequest;
 import com.todolist.app.dto.JwtResponse;
-import com.todolist.app.security.JwtHelper;
+import com.todolist.app.util.JwtHelper;
 import lombok.RequiredArgsConstructor;
 import org.antlr.v4.runtime.misc.NotNull;
 import org.slf4j.Logger;

@@ -1,0 +1,42 @@
+<configuration>
+
+    <appender  name="consoleAppender" class="ch.qos.logback.core.ConsoleAppender">
+
+        <encoder>
+             <pattern>
+                 %d{yy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{36} ---- %msg %n
+             </pattern>
+        </encoder>
+    </appender>
+
+    <appender name="fileAppender" class="ch.qos.logback.core.rolling.RollingFileAppender">
+
+        <file>
+            D:\Project\logs\todolistApp\tododlistApp.log
+        </file>
+        <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
+             <!--   %i is for sequential indexing the rolled-over file to distinguish them.   -->
+            <fileNamePattern>todolistApp-%d{yy-MM-dd}.%i.log</fileNamePattern>
+            <maxFileSize>10MB</maxFileSize>
+            <maxHistory>10</maxHistory>
+        </rollingPolicy>
+
+        <encoder>
+             <pattern>
+                 %d{yy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{36} ---- %msg %n
+             </pattern>
+        </encoder>
+
+    </appender>
+
+    <!-- Root Logger Configuration -->
+    <root level="INFO">
+        <appender-ref ref="consoleAppender"/>
+        <appender-ref ref="fileAppender"/>
+    </root>
+
+    <!-- Application-specific Logger Configuration -->
+    <!--  TRACE, DEBUG, INFO, WARN, and ERROR log will be seen in both file and console   -->
+    <logger name="com.todolist.app" level="TRACE"></logger>
+
+</configuration>

@@ -1,4 +1,4 @@
-package com.todolist.app.security;
+package com.todolist.app.util;
 
 import com.todolist.app.entity.User;
 import com.todolist.app.entity.UserCustomDetails;
@@ -6,7 +6,6 @@ import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
 import io.jsonwebtoken.security.Keys;
-import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Component;
 
@@ -98,5 +97,13 @@ public class JwtHelper{
         final String username = getUsernameFromToken(token);
 
         return (username.equals(userDetails.getUsername()) && !isTokenExpired(token));
+    }
+
+    // Extracting ID from token
+    public String extractId(String token)
+    {
+       String id = getClaimFromToken(token.substring(7), Claims::getId);
+
+        return id;
     }
 }

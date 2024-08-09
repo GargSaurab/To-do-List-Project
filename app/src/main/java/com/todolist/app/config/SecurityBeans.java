@@ -1,4 +1,4 @@
-package com.app.config;
+package com.todolist.app.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

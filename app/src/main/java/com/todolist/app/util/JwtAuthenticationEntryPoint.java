@@ -1,4 +1,4 @@
-package com.todolist.app.security;
+package com.todolist.app.util;
 
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;

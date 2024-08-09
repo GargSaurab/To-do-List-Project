@@ -47,7 +47,7 @@ public class UserServiceImpl implements UserService{
          String newPassword = encoder.encode(userPasswordReset.getNewPassword());
 
          // Validating if the user put the right old password or not if wrong process failed
-        if(encoder.matches(user.getPassword(), userPasswordReset.getOldPassword()))
+        if(encoder.matches(userPasswordReset.getOldPassword(), user.getPassword()))
         {
             user.setPassword(newPassword);
         }else {
