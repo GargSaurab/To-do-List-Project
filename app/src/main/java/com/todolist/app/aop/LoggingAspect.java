@@ -1,5 +1,6 @@
 package com.todolist.app.aop;
 
+import com.todolist.app.util.LogUtil;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.annotation.*;
 import org.aspectj.lang.reflect.MethodSignature;
@@ -33,7 +34,6 @@ public class LoggingAspect {
 
          logger.info("Entering CLASS:{} METHOD:{} with ReturnType:{} and Arguments:{}", methodClass, methodName,returnType, methodArgs);
     }
-
 
     @AfterReturning(value = "appMethods()", returning = "result")
     public  void loggingAfterReturning(JoinPoint joinPoint, Object result) {

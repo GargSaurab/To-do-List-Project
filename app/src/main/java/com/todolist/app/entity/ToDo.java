@@ -18,8 +18,10 @@ public class ToDo {
     private String task;
     private String description;
     private boolean completed;
+    private LocalDateTime completeDate;
     private LocalDateTime start_Time;
     private LocalDateTime end_Time;
+    private Frequency frequency;
 
     @ManyToOne
     @JoinColumn(name = "userId")

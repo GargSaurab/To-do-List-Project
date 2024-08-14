@@ -36,8 +36,10 @@ public class UserController {
     }
 
     @PostMapping("/resetPassword")
-    public ResponseEntity<?> resetPassword(@Valid @RequestBody PasswordReset userPasswordReset){
+    public ResponseEntity<?> resetPassword(@Valid @RequestBody PasswordReset userPasswordReset, HttpServletRequest request){
         CommonResponse response = new CommonResponse();
+        userPasswordReset.setId(UUID.fromString(jwtHelper.extractId(request.getHeader("Authorization"))));
+
         LogUtil.debug(UserController.class, "UserController's resetPassword api starting");
 
         try{
