@@ -1,7 +1,9 @@
 package com.todolist.app.controller;
 
+import com.todolist.app.dto.CommonResponse;
 import com.todolist.app.dto.JwtRequest;
 import com.todolist.app.dto.JwtResponse;
+import com.todolist.app.dto.StatusCode;
 import com.todolist.app.util.JwtHelper;
 import lombok.RequiredArgsConstructor;
 import org.antlr.v4.runtime.misc.NotNull;
@@ -40,6 +42,8 @@ public class AuthController {
      @PostMapping("/login")
      public ResponseEntity<?> login(@RequestBody @NotNull JwtRequest request)
      {
+          CommonResponse commonResponse = new CommonResponse();
+
          // autheticate user
           this.doAutheticate(request.getName(), request.getPassword());
 
@@ -55,7 +59,11 @@ public class AuthController {
                  .time(LocalDateTime.now())
                  .build();
 
-         return new ResponseEntity<>(response, HttpStatus.OK);
+         commonResponse.info.code = StatusCode.success;
+         commonResponse.info.message = "Successfull login";
+         commonResponse.data  = response;
+
+         return new ResponseEntity<>(commonResponse, HttpStatus.OK);
 
      }
 

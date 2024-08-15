@@ -2,6 +2,8 @@ package com.todolist.app.controller;
 
 import com.todolist.app.dto.ToDoDto;
 import com.todolist.app.service.TodoService;
+import com.todolist.app.util.JwtHelper;
+import jakarta.servlet.http.HttpServletRequest;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -11,23 +13,33 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
+import java.util.UUID;
 
 @RestController
 @RequestMapping("/todolist")
 @RequiredArgsConstructor // for constructor injection makes the injection confirmed
 public class ToDoController {
 
+    private JwtHelper jwtHelper;
     private final TodoService tdSrv; // makes the class immutable which helps in
     // thread safety, security and simplicity.
     // Constructor Injection also allows it.
 
     @PostMapping("/todolist")
-    public ResponseEntity<?> getTodoList(@RequestParam int id)
+    public ResponseEntity<?> getTodoList(HttpServletRequest request)
     {
-          List<ToDoDto> todos = tdSrv.getTodoList(id);
+          String id = jwtHelper.extractId(request.getHeader("Authorization"));
+
+          List<ToDoDto> todos = tdSrv.getTodoList(UUID.fromString(id));
 
           return new ResponseEntity( HttpStatus.OK);
     }
+
+//    @PostMapping("/addTodo")
+//    public ResponseEntity<?> addTodo(@RequestParam ToDoRequest toDoRequest)
+//    {
+//
+//    }
 
 }
 
