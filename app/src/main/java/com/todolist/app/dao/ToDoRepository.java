@@ -10,5 +10,5 @@ import java.util.UUID;
 @Repository
 public interface ToDoRepository extends JpaRepository<ToDo, Integer> {
 
-    public List<ToDo> findByUser(UUID id);
+    public List<ToDo> findByUser_Id(UUID id);
 }
