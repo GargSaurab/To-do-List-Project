@@ -1,5 +1,6 @@
 package com.todolist.app.controller;
 
+import com.todolist.app.customException.ResourceNotFoundException;
 import com.todolist.app.dto.CommonResponse;
 import com.todolist.app.dto.StatusCode;
 import com.todolist.app.dto.ToDoDto;
@@ -7,6 +8,7 @@ import com.todolist.app.dto.ToDoRequest;
 import com.todolist.app.service.TodoService;
 import com.todolist.app.util.JwtHelper;
 import jakarta.servlet.http.HttpServletRequest;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -16,7 +18,7 @@ import java.util.List;
 import java.util.UUID;
 
 @RestController
-@RequestMapping("/todolist")
+@RequestMapping("/todo")
 @RequiredArgsConstructor // for constructor injection makes the injection confirmed
 public class ToDoController {
 
@@ -25,18 +27,22 @@ public class ToDoController {
     // thread safety, security and simplicity.
     // Constructor Injection also allows it.
 
-    @PostMapping("/todolist")
+     @GetMapping("/todolist")
     public ResponseEntity<?> getTodoList(HttpServletRequest request)
     {
           String id = jwtHelper.extractId(request.getHeader("Authorization"));
 
-          List<ToDoDto> todos = tdSrv.getTodoList(UUID.fromString(id));
-
-          return new ResponseEntity( HttpStatus.OK);
+          try{
+            List<ToDoDto> todos = tdSrv.getTodoList(UUID.fromString(id));
+          return new ResponseEntity(todos, HttpStatus.OK);
+             }catch(Exception exception)
+          {
+              throw exception;
+          }
     }
 
     @PostMapping("/addTodo")
-    public ResponseEntity<?> addTodo(@RequestBody ToDoRequest toDoRequest, HttpServletRequest request)
+    public ResponseEntity<?> addTodo(@Valid @RequestBody ToDoRequest toDoRequest, HttpServletRequest request)
     {
         toDoRequest.setUserId(UUID.fromString(jwtHelper.extractId(request.getHeader("Authorization"))));
         CommonResponse response = new CommonResponse();
@@ -51,6 +57,44 @@ public class ToDoController {
            throw exception;
         }
     }
+
+    @PostMapping("/removeTodo")
+    public ResponseEntity<?> removeTodo(@RequestParam int id)
+    {
+        CommonResponse response = new CommonResponse();
+
+        try{
+            tdSrv.removeTodo(id);
+            response.info.code = StatusCode.success;
+            response.info.message = "Todo is removed";
+            return ResponseEntity.ok(response);
+
+        }catch(Exception exception)
+        {
+            throw exception;
+        }
+    }
+
+    @PostMapping("/updateTodo")
+    public ResponseEntity<?> updateTodo(@Valid @RequestBody ToDoDto toDoDto)
+    {
+        CommonResponse response = new CommonResponse();
+
+        try{
+            tdSrv.updateTodo(toDoDto);
+            response.info.code = StatusCode.success;
+            response.info.message = "Todo is updated";
+            return ResponseEntity.ok(response);
+
+        }catch(ResourceNotFoundException re)
+        {
+            throw re;
+        }catch(Exception exception)
+        {
+            throw exception;
+        }
+    }
+
 
 }
 

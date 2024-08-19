@@ -11,9 +11,9 @@ import java.util.UUID;
 @Service
 public interface UserService {
 
-    public void register(UserRequest registerUser);
+    void register(UserRequest registerUser);
 
-    public void resetPassword(PasswordReset userPasswordReset) ;
+    void resetPassword(PasswordReset userPasswordReset) ;
 
-    public UserDto viewUser(UUID id);
+    UserDto viewUser(UUID id);
 }

@@ -22,7 +22,7 @@ public class JwtHelper{
     private static final long tokenValidity = 3600000;
 
     // payload encryption
-    private SecretKey jwtSecret = Keys.secretKeyFor(SignatureAlgorithm.HS256);
+    private final SecretKey jwtSecret = Keys.secretKeyFor(SignatureAlgorithm.HS256);
 
     // Retrieves username
     public String getUsernameFromToken(String token)
@@ -65,9 +65,8 @@ public class JwtHelper{
          Map<String, Object> claims = new HashMap<>();
          claims.put("msg", "It's a useless token nothing to see here, shuu!!");
 
-         if(userDetails instanceof UserCustomDetails)
+         if(userDetails instanceof UserCustomDetails customDetails)
          {
-             UserCustomDetails customDetails = (UserCustomDetails) userDetails;
              User user = customDetails.getUser();
 
              return doGenerationToken(claims, userDetails.getUsername(), user);

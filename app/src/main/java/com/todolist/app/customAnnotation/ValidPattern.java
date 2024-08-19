@@ -8,7 +8,7 @@ import java.lang.annotation.Target;
 import jakarta.validation.Constraint;
 import jakarta.validation.Payload;
 
-@Constraint(validatedBy = CustomValidator.class)// Specifies the validator class
+@Constraint(validatedBy = PatternValidator.class)// Specifies the validator class
 // Specifies who can use it .RUNTIME means both compiler and JVM can use it with the help of reflection
 @Retention(RetentionPolicy.RUNTIME) 
 @Target(ElementType.FIELD) // Specifies the element type on which we can use this annotation

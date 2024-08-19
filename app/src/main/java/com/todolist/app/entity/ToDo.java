@@ -30,7 +30,7 @@ public class ToDo {
 
         if(endDate == null)
         {
-            endDate = LocalDate.now();
+            endDate = startDate;
         }
         if(endTime == null)
         {
@@ -47,12 +47,13 @@ public class ToDo {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
+    // Setting the column properties in database
     @Column(nullable = false, length = 50)
     @Size(max = 50)
     private String task;
 
-    @Column( nullable = false, length = 50)
-    @Size(max = 50)
+    @Column(length = 100)
+    @Size(max = 100)
     private String description;
 
     @Column(nullable = false, columnDefinition = "boolean default false")

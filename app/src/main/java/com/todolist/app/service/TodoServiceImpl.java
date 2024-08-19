@@ -49,5 +49,33 @@ public class TodoServiceImpl implements TodoService{
         tdRep.save(todo);
     }
 
+    @Override
+    public void removeTodo(int id) {
+        tdRep.deleteById(id);
+    }
+
+    @Override
+    public void updateTodo(ToDoDto toDoDto) {
+
+        ToDo todo = tdRep.findById(toDoDto.getId())
+                .orElseThrow(() -> new ResourceNotFoundException("Can't find the todo in database"));
+
+        if(!toDoDto.getTask().isBlank())
+        {
+            todo.setTask(toDoDto.getTask());
+        }
+        if(!toDoDto.getDescription().isEmpty()){
+            todo.setDescription(toDoDto.getDescription());
+        }
+        if(toDoDto.isCompleted())
+        {
+            todo.setCompleted(true);
+        }
+
+
+        tdRep.save(todo);
+
+    }
+
 
 }

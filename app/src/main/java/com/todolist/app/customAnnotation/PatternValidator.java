@@ -4,13 +4,17 @@ import jakarta.validation.ConstraintValidator;
 import jakarta.validation.ConstraintValidatorContext;
 import org.springframework.beans.factory.annotation.Value;
 
-public class CustomValidator implements ConstraintValidator<ValidPattern, String> {
+public class PatternValidator implements ConstraintValidator<ValidPattern, String> {
 
-    @Value("${user.validation.emailIdPattern}")
+    @Value("${user.validation.usernamePattern}")
+     private String usernamePattern;
+
+     @Value("${user.validation.emailIdPattern}")
      private String emailIdPattern;
-     
+
      @Value("${user.validation.passwordPattern}")
      private String passwordPattern;
+
 
      private String pattern;
 
@@ -19,7 +23,11 @@ public class CustomValidator implements ConstraintValidator<ValidPattern, String
      {
          switch(constraintAnnotation.type())
          {
-            case "emailId":
+             case "username":
+              this.pattern = usernamePattern;
+              break;
+
+             case "emailId":
              this.pattern = emailIdPattern;
              break;
 
@@ -37,7 +45,7 @@ public class CustomValidator implements ConstraintValidator<ValidPattern, String
      public boolean isValid(String value, ConstraintValidatorContext  context)
      {
        // Also checks if value is null or empty
-        if(value == null || value.isEmpty()){
+        if(value == null || value.trim().isEmpty()){
               return false;
         }
 

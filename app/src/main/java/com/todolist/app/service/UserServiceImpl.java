@@ -31,7 +31,7 @@ public class UserServiceImpl implements UserService{
 
         User user = mapper.map(registerUser, User.class);
 
-        System.out.println(registerUser.toString());
+        System.out.println(registerUser);
 
         user.setPassword(encoder.encode(user.getPassword()));
 

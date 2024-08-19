@@ -2,6 +2,7 @@ package com.todolist.app.config;
 
 import com.todolist.app.filter.JwtAuthenticationFilter;
 import com.todolist.app.util.JwtAuthenticationEntryPoint;
+import com.todolist.app.util.LogUtil;
 import lombok.RequiredArgsConstructor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -29,12 +30,10 @@ public class SecurityConfig {
 
     private final PasswordEncoder passwordEncoder;
 
-    private Logger logger = LoggerFactory.getLogger(SecurityConfig.class);
-
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception{
 
-        logger.info("Security filter chain => {}", http.toString());
+        LogUtil.info(SecurityFilterChain.class,"Security filter chain => " + http.toString());
 
         http.csrf(csrf -> csrf.disable())
                 .authorizeHttpRequests(request -> request.requestMatchers("/auth/**")

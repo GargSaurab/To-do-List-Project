@@ -10,7 +10,9 @@ import java.util.UUID;
 @Service
 public interface TodoService {
 
-    public List<ToDoDto> getTodoList(UUID id);
-    public void addToDo(ToDoRequest toDoRequest);
+    List<ToDoDto> getTodoList(UUID id);
+    void addToDo(ToDoRequest toDoRequest);
+    void removeTodo(int id);
+    void updateTodo(ToDoDto toDoDto);
 
 }
