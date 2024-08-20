@@ -23,61 +23,52 @@ public class UserController {
 
     private final JwtHelper jwtHelper;
 
+    // Register/Adds the user
     @PostMapping("/register")
-     public ResponseEntity<?> register(@Valid @RequestBody  UserRequest registerUser)
+     public ResponseEntity<CommonResponse> register(@Valid @RequestBody  UserRequest registerUser)
     {
         CommonResponse response = new CommonResponse();
 
             userSrv.register(registerUser);
-            response.info.code = StatusCode.success;
+            response.info.code = StatusCode.Success;
             response.info.message = "User got registered";
             return new ResponseEntity<>(response, HttpStatus.OK);
 
     }
 
+    // User can Reset the password
     @PostMapping("/resetPassword")
-    public ResponseEntity<?> resetPassword(@Valid @RequestBody PasswordReset userPasswordReset, HttpServletRequest request){
+    public ResponseEntity<CommonResponse> resetPassword(@Valid @RequestBody PasswordReset userPasswordReset, HttpServletRequest request){
         CommonResponse response = new CommonResponse();
-        userPasswordReset.setId(UUID.fromString(jwtHelper.extractId(request.getHeader("Authorization"))));
+        userPasswordReset.setId(UUID.fromString(jwtHelper.extractId(request.getHeader("Authorization")))); // Fetching id from jwt
 
         LogUtil.debug(UserController.class, "UserController's resetPassword api starting");
 
-        try{
             userSrv.resetPassword(userPasswordReset);
-            response.info.code = StatusCode.success;
+            response.info.code = StatusCode.Success;
             response.info.message = "Password got reset";
             return new ResponseEntity<>(response, HttpStatus.OK);
-        }catch(InvalidInputException ie)
-        {
-            throw ie;
-        }catch(Exception exception)
-        {
-            throw exception;
-        }
+
     }
 
+    // User can see there profile
     @GetMapping("/viewProfile")
-    public ResponseEntity viewProfile(HttpServletRequest request)
+    public ResponseEntity<CommonResponse> viewProfile(HttpServletRequest request)
     {
         CommonResponse response = new CommonResponse();
         LogUtil.info(UserController.class, "UserController's viewProfile api starting");
 
-        String id = jwtHelper.extractId(request.getHeader("Authorization"));
+            // fetching id from jwt since we are not taking it from user
+            String id = jwtHelper.extractId(request.getHeader("Authorization"));
 
-        System.out.println(id.trim());
-
-        try{
+            // UUID.fromString -> converting string into UUID
             UserDto user = userSrv.viewUser(UUID.fromString(id.trim()));
-
-            response.info.code = StatusCode.success;
+            response.info.code = StatusCode.Success;
             response.info.message = String.format("%s's data fetched", user.getUsername());
             response.data = user;
 
             return new ResponseEntity(response, HttpStatus.OK);
-        }catch(Exception exception)
-        {
-            throw exception;
-        }
+
     }
 
 }

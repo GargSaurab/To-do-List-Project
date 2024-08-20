@@ -5,28 +5,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="aaa49c0d-b302-4759-aab5-cb70b81b1ada" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/todolist/app/customAnnotation/NonBlank.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/todolist/app/customAnnotation/NonBlankValidator.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/todolist/app/config/SecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/todolist/app/config/SecurityConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/todolist/app/aop/GlobalExceptionHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/todolist/app/aop/GlobalExceptionHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/todolist/app/controller/AuthController.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/todolist/app/controller/AuthController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/todolist/app/controller/ToDoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/todolist/app/controller/ToDoController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/todolist/app/customAnnotation/CustomValidator.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/todolist/app/customAnnotation/PatternValidator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/todolist/app/customAnnotation/ValidPattern.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/todolist/app/customAnnotation/ValidPattern.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/todolist/app/dao/ToDoRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/todolist/app/dao/ToDoRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/todolist/app/dao/UserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/todolist/app/dao/UserRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/todolist/app/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/todolist/app/controller/UserController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/todolist/app/dto/StatusCode.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/todolist/app/dto/StatusCode.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/todolist/app/dto/ToDoDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/todolist/app/dto/ToDoDto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/todolist/app/dto/ToDoRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/todolist/app/dto/ToDoRequest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/todolist/app/dto/UserRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/todolist/app/dto/UserRequest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/todolist/app/entity/ToDo.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/todolist/app/entity/ToDo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/todolist/app/filter/JwtAuthenticationFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/todolist/app/filter/JwtAuthenticationFilter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/todolist/app/service/CustomUserDetailsService.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/todolist/app/service/CustomUserDetailsService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/todolist/app/service/TodoService.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/todolist/app/service/TodoService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/todolist/app/service/TodoServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/todolist/app/service/TodoServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/todolist/app/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/todolist/app/service/UserService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/todolist/app/service/UserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/todolist/app/service/UserServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/todolist/app/util/JwtHelper.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/todolist/app/util/JwtHelper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/resources/application.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/resources/application.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/todolistApp-24-08-10.0.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/todolistApp-24-08-17.0.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/todolistApp-24-08-18.0.log" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -170,12 +159,12 @@
         </line-breakpoint>
         <line-breakpoint type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/todolist/app/service/UserServiceImpl.java</url>
-          <line>49</line>
+          <line>51</line>
           <option name="timeStamp" value="22" />
         </line-breakpoint>
         <line-breakpoint type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/todolist/app/service/UserServiceImpl.java</url>
-          <line>51</line>
+          <line>53</line>
           <option name="timeStamp" value="23" />
         </line-breakpoint>
         <breakpoint type="java-exception">

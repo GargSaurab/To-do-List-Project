@@ -7,6 +7,7 @@ import com.todolist.app.dto.StatusCode;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.BadCredentialsException;
+import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 
@@ -34,6 +35,18 @@ public class GlobalExceptionHandler {
         exception.printStackTrace();
         return new ResponseEntity<>(response, HttpStatus.OK);
     }
+
+    @ExceptionHandler(MethodArgumentNotValidException.class)
+     public ResponseEntity<CommonResponse> MethodArgumentNotValidExceptionHandler(MethodArgumentNotValidException exception)
+    {
+        CommonResponse response = new CommonResponse();
+
+        response.info.code = StatusCode.Invalid_Input;
+        response.info.message = exception.getMessage();
+        exception.printStackTrace();
+        return new ResponseEntity<>(response, HttpStatus.OK);
+    }
+
     @ExceptionHandler(BadCredentialsException.class)
      public ResponseEntity<CommonResponse> BadCredentialsExceptionHandler(BadCredentialsException exception)
     {
@@ -50,7 +63,7 @@ public class GlobalExceptionHandler {
     {
         CommonResponse response = new CommonResponse();
 
-        response.info.code = StatusCode.server_error;
+        response.info.code = StatusCode.Server_Error;
         // Sorry for the joke because I am bored and can't think of anything else and kind a procastinating too
         response.info.message = "Well! bad luck because I also don't what happened there";
         exception.printStackTrace();

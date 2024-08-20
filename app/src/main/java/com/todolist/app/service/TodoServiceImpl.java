@@ -7,6 +7,7 @@ import com.todolist.app.dto.ToDoDto;
 import com.todolist.app.dto.ToDoRequest;
 import com.todolist.app.entity.ToDo;
 import com.todolist.app.entity.User;
+import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,6 +19,7 @@ import java.util.stream.Collectors;
 
 @Service
 @RequiredArgsConstructor
+@Transactional
 public class TodoServiceImpl implements TodoService{
 
     private final ToDoRepository tdRep;
@@ -60,22 +62,10 @@ public class TodoServiceImpl implements TodoService{
         ToDo todo = tdRep.findById(toDoDto.getId())
                 .orElseThrow(() -> new ResourceNotFoundException("Can't find the todo in database"));
 
-        if(!toDoDto.getTask().isBlank())
-        {
-            todo.setTask(toDoDto.getTask());
-        }
-        if(!toDoDto.getDescription().isEmpty()){
-            todo.setDescription(toDoDto.getDescription());
-        }
-        if(toDoDto.isCompleted())
-        {
-            todo.setCompleted(true);
-        }
-
+        mapper.map(toDoDto, todo);
 
         tdRep.save(todo);
 
     }
-
 
 }

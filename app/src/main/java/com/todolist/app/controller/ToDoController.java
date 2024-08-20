@@ -28,73 +28,52 @@ public class ToDoController {
     // Constructor Injection also allows it.
 
      @GetMapping("/todolist")
-    public ResponseEntity<?> getTodoList(HttpServletRequest request)
+    public ResponseEntity<CommonResponse> getTodoList(HttpServletRequest request)
     {
+          CommonResponse response = new CommonResponse();
           String id = jwtHelper.extractId(request.getHeader("Authorization"));
-
-          try{
-            List<ToDoDto> todos = tdSrv.getTodoList(UUID.fromString(id));
+          List<ToDoDto> todos = tdSrv.getTodoList(UUID.fromString(id));
           return new ResponseEntity(todos, HttpStatus.OK);
-             }catch(Exception exception)
-          {
-              throw exception;
-          }
+
     }
 
     @PostMapping("/addTodo")
-    public ResponseEntity<?> addTodo(@Valid @RequestBody ToDoRequest toDoRequest, HttpServletRequest request)
+    public ResponseEntity<CommonResponse> addTodo(@Valid @RequestBody ToDoRequest toDoRequest, HttpServletRequest request)
     {
         toDoRequest.setUserId(UUID.fromString(jwtHelper.extractId(request.getHeader("Authorization"))));
         CommonResponse response = new CommonResponse();
 
-        try{
             tdSrv.addToDo(toDoRequest);
-            response.info.code = StatusCode.success;
+            response.info.code = StatusCode.Success;
             response.info.message = "Todo is saved";
             return ResponseEntity.ok(response);
-        }catch (Exception exception)
-        {
-           throw exception;
-        }
+
     }
 
     @PostMapping("/removeTodo")
-    public ResponseEntity<?> removeTodo(@RequestParam int id)
+    public ResponseEntity<CommonResponse> removeTodo(@RequestParam int id)
     {
         CommonResponse response = new CommonResponse();
 
-        try{
+
             tdSrv.removeTodo(id);
-            response.info.code = StatusCode.success;
+            response.info.code = StatusCode.Success;
             response.info.message = "Todo is removed";
             return ResponseEntity.ok(response);
 
-        }catch(Exception exception)
-        {
-            throw exception;
-        }
     }
 
     @PostMapping("/updateTodo")
-    public ResponseEntity<?> updateTodo(@Valid @RequestBody ToDoDto toDoDto)
+    public ResponseEntity<CommonResponse> updateTodo(@Valid @RequestBody ToDoDto toDoDto)
     {
         CommonResponse response = new CommonResponse();
 
-        try{
             tdSrv.updateTodo(toDoDto);
-            response.info.code = StatusCode.success;
+            response.info.code = StatusCode.Success;
             response.info.message = "Todo is updated";
             return ResponseEntity.ok(response);
 
-        }catch(ResourceNotFoundException re)
-        {
-            throw re;
-        }catch(Exception exception)
-        {
-            throw exception;
-        }
     }
-
 
 }
 

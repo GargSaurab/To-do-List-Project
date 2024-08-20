@@ -40,7 +40,7 @@ public class AuthController {
     public Logger logger = LoggerFactory.getLogger(AuthController.class);
 
      @PostMapping("/login")
-     public ResponseEntity<?> login(@RequestBody @NotNull JwtRequest request)
+     public ResponseEntity<CommonResponse> login(@RequestBody @NotNull JwtRequest request)
      {
           CommonResponse commonResponse = new CommonResponse();
 
@@ -59,7 +59,7 @@ public class AuthController {
                  .time(LocalDateTime.now())
                  .build();
 
-         commonResponse.info.code = StatusCode.success;
+         commonResponse.info.code = StatusCode.Success;
          commonResponse.info.message = "Successfull login";
          commonResponse.data  = response;
 
@@ -73,6 +73,7 @@ public class AuthController {
                  = new UsernamePasswordAuthenticationToken(name, password);
 
          try {
+            // Authenticating user via
              manager.authenticate(authentication);
          } catch (BadCredentialsException e) {
              logger.error("Bad credentials for user: {}", name);

@@ -7,6 +7,7 @@ import com.todolist.app.dto.PasswordReset;
 import com.todolist.app.dto.UserDto;
 import com.todolist.app.dto.UserRequest;
 import com.todolist.app.entity.User;
+import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import org.modelmapper.ModelMapper;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -16,6 +17,7 @@ import java.util.UUID;
 
 @Service
 @RequiredArgsConstructor
+@Transactional
 public class UserServiceImpl implements UserService{
 
     private final UserRepository userRepo;
@@ -63,7 +65,7 @@ public class UserServiceImpl implements UserService{
 
         // Fetching user via Id which is extracted throgh Jwt
         User user = userRepo.findById(id)
-                .orElseThrow(() -> new RuntimeException());
+                .orElseThrow(() -> new RuntimeException("Some unusual server ERRORR!!!!"));
 
         UserDto userDto = mapper.map(user, UserDto.class);
 
