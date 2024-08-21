@@ -12,7 +12,7 @@
     <appender name="fileAppender" class="ch.qos.logback.core.rolling.RollingFileAppender">
 
         <file>
-            D:\Project\logs\todolistApp\tododlistApp.log
+            G:\Project\logs\todolistApp\tododlistApp.log
         </file>
         <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
              <!--   %i is for sequential indexing the rolled-over file to distinguish them.   -->

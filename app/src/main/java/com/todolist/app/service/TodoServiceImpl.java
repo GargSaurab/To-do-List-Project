@@ -13,6 +13,7 @@ import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDate;
 import java.util.List;
 import java.util.UUID;
 import java.util.stream.Collectors;
@@ -62,7 +63,41 @@ public class TodoServiceImpl implements TodoService{
         ToDo todo = tdRep.findById(toDoDto.getId())
                 .orElseThrow(() -> new ResourceNotFoundException("Can't find the todo in database"));
 
+
+        // Map only non-null fields from ToDoDto to the existing ToDo entity
+        mapper.getConfiguration().setSkipNullEnabled(true);
         mapper.map(toDoDto, todo);
+
+//        if(toDoDto.getTask() != null)
+//        {
+//            todo.setTask(toDoDto.getTask());
+//        }
+//        if( toDoDto.getDescription() != null ){
+//            todo.setDescription(toDoDto.getDescription());
+//        }
+//        if(toDoDto.isCompleted()) {
+//            todo.setCompleted(true);
+//        }
+//        if(toDoDto.getStartDate() != null)
+//        {
+//            todo.setStartDate(toDoDto.getStartDate());
+//        }
+//        if(toDoDto.getStartTime() != null)
+//        {
+//            todo.setStartTime(toDoDto.getStartTime());
+//        }
+        if(todo.getEndDate().isBefore(toDoDto.getStartDate()))
+        {
+                todo.setEndDate(toDoDto.getStartDate());
+        }
+//        if(toDoDto.getEndTime() != null )
+//        {
+//            todo.setEndTime(toDoDto.getEndTime());
+//        }
+//        if(toDoDto.getFrequency() != null)
+//        {
+//            todo.setFrequency(toDoDto.getFrequency());
+//        }
 
         tdRep.save(todo);
 
