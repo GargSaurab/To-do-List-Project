@@ -1,12 +1,9 @@
 package com.todolist.app.dto;
 
 import com.todolist.app.entity.Frequency;
-import com.todolist.app.entity.User;
-import jakarta.persistence.Column;
 import lombok.Data;
 
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.util.UUID;
 

@@ -1,5 +1,6 @@
 package com.todolist.app.service;
 
+import com.todolist.app.customException.InvalidInputException;
 import com.todolist.app.customException.ResourceNotFoundException;
 import com.todolist.app.dao.ToDoRepository;
 import com.todolist.app.dao.UserRepository;
@@ -7,6 +8,7 @@ import com.todolist.app.dto.ToDoDto;
 import com.todolist.app.dto.ToDoRequest;
 import com.todolist.app.entity.ToDo;
 import com.todolist.app.entity.User;
+import com.todolist.app.util.Utility;
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import org.modelmapper.ModelMapper;
@@ -14,6 +16,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
+import java.time.LocalTime;
 import java.util.List;
 import java.util.UUID;
 import java.util.stream.Collectors;
@@ -43,13 +46,18 @@ public class TodoServiceImpl implements TodoService{
 
     @Override
     public void addToDo(ToDoRequest toDoRequest) {
-
-        User user = userRep.findById(toDoRequest.getUserId())
+       if(Utility.isDateTimeValid(toDoRequest.getStartDate(), toDoRequest.getEndDate(),toDoRequest.getStartTime(), toDoRequest.getEndTime()))
+        {
+           User user = userRep.findById(toDoRequest.getUserId())
                 .orElseThrow(() -> new ResourceNotFoundException("Some error occured"));
 
-        ToDo todo = mapper.map(toDoRequest, ToDo.class);
-        todo.setUser(user);
-        tdRep.save(todo);
+            ToDo todo = mapper.map(toDoRequest, ToDo.class);
+            todo.setUser(user);
+            tdRep.save(todo);
+        }else{
+
+           throw new InvalidInputException("End date/time cannot be before start date/time");
+       }
     }
 
     @Override
@@ -60,46 +68,28 @@ public class TodoServiceImpl implements TodoService{
     @Override
     public void updateTodo(ToDoDto toDoDto) {
 
-        ToDo todo = tdRep.findById(toDoDto.getId())
-                .orElseThrow(() -> new ResourceNotFoundException("Can't find the todo in database"));
-
-
-        // Map only non-null fields from ToDoDto to the existing ToDo entity
-        mapper.getConfiguration().setSkipNullEnabled(true);
-        mapper.map(toDoDto, todo);
-
-//        if(toDoDto.getTask() != null)
-//        {
-//            todo.setTask(toDoDto.getTask());
-//        }
-//        if( toDoDto.getDescription() != null ){
-//            todo.setDescription(toDoDto.getDescription());
-//        }
-//        if(toDoDto.isCompleted()) {
-//            todo.setCompleted(true);
-//        }
-//        if(toDoDto.getStartDate() != null)
-//        {
-//            todo.setStartDate(toDoDto.getStartDate());
-//        }
-//        if(toDoDto.getStartTime() != null)
-//        {
-//            todo.setStartTime(toDoDto.getStartTime());
-//        }
-        if(todo.getEndDate().isBefore(toDoDto.getStartDate()))
+        if(Utility.isDateTimeValid(toDoDto.getStartDate(), toDoDto.getEndDate(),toDoDto.getStartTime(), toDoDto.getEndTime()))
         {
-                todo.setEndDate(toDoDto.getStartDate());
-        }
-//        if(toDoDto.getEndTime() != null )
-//        {
-//            todo.setEndTime(toDoDto.getEndTime());
-//        }
-//        if(toDoDto.getFrequency() != null)
-//        {
-//            todo.setFrequency(toDoDto.getFrequency());
-//        }
+            ToDo todo = tdRep.findById(toDoDto.getId())
+                    .orElseThrow(() -> new ResourceNotFoundException("Can't find the todo in database"));
 
-        tdRep.save(todo);
+            // Map only non-null fields from ToDoDto to the existing ToDo entity
+            mapper.getConfiguration().setSkipNullEnabled(true);
+            mapper.map(toDoDto, todo);
+
+            if (todo.getEndDate().isBefore(todo.getStartDate())) {
+                todo.setEndDate(toDoDto.getStartDate());
+
+                if(todo.getEndTime().isBefore(todo.getStartTime())){
+                    todo.setEndTime( LocalTime.of(23, 59, 59));
+                }
+            }
+
+            tdRep.save(todo);
+        }else{
+
+            throw new InvalidInputException("End date/time cannot be before start date/time");
+        }
 
     }
 
