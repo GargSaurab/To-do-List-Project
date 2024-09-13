@@ -6,7 +6,7 @@ import org.springframework.beans.factory.annotation.Value;
 
 public class PatternValidator implements ConstraintValidator<ValidPattern, String> {
 
-    @Value("${user.validation.usernamePattern}")
+     @Value("${user.validation.usernamePattern}")
      private String usernamePattern;
 
      @Value("${user.validation.emailIdPattern}")
@@ -37,7 +37,6 @@ public class PatternValidator implements ConstraintValidator<ValidPattern, Strin
 
              default:
               throw new IllegalArgumentException("Wrong pattern type");
-
          }
        }
 
@@ -48,7 +47,6 @@ public class PatternValidator implements ConstraintValidator<ValidPattern, Strin
         if(value == null || value.trim().isEmpty()){
               return false;
         }
-
         return value.matches(pattern);
      }
 

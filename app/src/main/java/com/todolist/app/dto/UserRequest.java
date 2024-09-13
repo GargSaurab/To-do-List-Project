@@ -10,8 +10,6 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 public class UserRequest {
-
-
     @ValidPattern(type = "username", message = "Invalid Username")
     private String username;
     @ValidPattern(type = "emailId", message = "EmailId should be in proper format and can't be empty")

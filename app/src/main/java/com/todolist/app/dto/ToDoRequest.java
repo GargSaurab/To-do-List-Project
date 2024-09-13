@@ -12,7 +12,6 @@ import java.util.UUID;
 
 @Data
 public class ToDoRequest {
-
     @NotBlank(message = "OOPs! forgot to add the task")
     @Size(max = 50)
     private String task;

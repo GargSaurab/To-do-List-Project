@@ -9,12 +9,10 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Table(name = "app_Group")
 public class Group {
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private String name;
-
     @ManyToOne
     @JoinColumn(name = "userId")
     private User adminId;

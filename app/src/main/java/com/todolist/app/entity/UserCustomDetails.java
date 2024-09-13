@@ -12,7 +12,6 @@ import java.util.List;
 @Data
 @AllArgsConstructor
 public class UserCustomDetails implements UserDetails {
-
     private final User user;
 
     @Override
@@ -25,14 +24,14 @@ public class UserCustomDetails implements UserDetails {
         return this.user.getPassword();
     }
 
+    // It' used as an unique identifier so we can any other identifier like id or email too
     @Override
     public String getUsername() {
-        return this.user.getUsername();
+        return this.user.getEmail();
     }
 
     public User getUser()
     {
         return this.user;
     }
-
 }

@@ -1,7 +1,6 @@
 package com.todolist.app.dto;
 
 public interface StatusCode {
-
     int Success = 200;
     int Created = 201;
     int Server_Error = 500;

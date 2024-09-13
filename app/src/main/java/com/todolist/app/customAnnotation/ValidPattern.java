@@ -13,12 +13,9 @@ import jakarta.validation.Payload;
 @Retention(RetentionPolicy.RUNTIME) 
 @Target(ElementType.FIELD) // Specifies the element type on which we can use this annotation
 public @interface ValidPattern {
-
  // As we know annotation is used to provice the metadata so write all the data that we want to provide
-
     String type();
     String message() default "Invalid format"; // default keyword will provide
     Class<?>[] groups() default {}; // This is where you define validation groups
     Class<? extends Payload>[] payload() default {};
-
 }

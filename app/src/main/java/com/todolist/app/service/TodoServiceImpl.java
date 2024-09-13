@@ -25,18 +25,13 @@ import java.util.stream.Collectors;
 @RequiredArgsConstructor
 @Transactional
 public class TodoServiceImpl implements TodoService{
-
     private final ToDoRepository tdRep;
-
     private final UserRepository userRep;
-
     private final ModelMapper mapper;
 
     @Override
     public List<ToDoDto> getTodoList(UUID id) {
-
        List<ToDoDto> todos = tdRep.findByUser_Id(id).stream().map(todo -> mapper.map(todo, ToDoDto.class)).collect(Collectors.toList());
-
        if(todos.isEmpty())
        {
            throw new ResourceNotFoundException("No todos found");
@@ -55,7 +50,6 @@ public class TodoServiceImpl implements TodoService{
             todo.setUser(user);
             tdRep.save(todo);
         }else{
-
            throw new InvalidInputException("End date/time cannot be before start date/time");
        }
     }
@@ -67,30 +61,22 @@ public class TodoServiceImpl implements TodoService{
 
     @Override
     public void updateTodo(ToDoDto toDoDto) {
-
         if(Utility.isDateTimeValid(toDoDto.getStartDate(), toDoDto.getEndDate(),toDoDto.getStartTime(), toDoDto.getEndTime()))
         {
             ToDo todo = tdRep.findById(toDoDto.getId())
                     .orElseThrow(() -> new ResourceNotFoundException("Can't find the todo in database"));
-
             // Map only non-null fields from ToDoDto to the existing ToDo entity
             mapper.getConfiguration().setSkipNullEnabled(true);
             mapper.map(toDoDto, todo);
-
             if (todo.getEndDate().isBefore(todo.getStartDate())) {
                 todo.setEndDate(toDoDto.getStartDate());
-
                 if(todo.getEndTime().isBefore(todo.getStartTime())){
                     todo.setEndTime( LocalTime.of(23, 59, 59));
                 }
             }
-
             tdRep.save(todo);
         }else{
-
             throw new InvalidInputException("End date/time cannot be before start date/time");
         }
-
     }
-
 }

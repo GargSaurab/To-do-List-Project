@@ -18,7 +18,6 @@ public class GlobalExceptionHandler {
      public ResponseEntity<CommonResponse> ResourceNotFoundExceptionHandler(ResourceNotFoundException exception)
     {
         CommonResponse response = new CommonResponse();
-
         response.info.code = StatusCode.NOt_Found;
         response.info.message = exception.getMessage();
         exception.printStackTrace();
@@ -29,7 +28,6 @@ public class GlobalExceptionHandler {
      public ResponseEntity<CommonResponse> InvalidInputExceptionHandler(InvalidInputException exception)
     {
         CommonResponse response = new CommonResponse();
-
         response.info.code = StatusCode.Bad_Request;
         response.info.message = exception.getMessage();
         exception.printStackTrace();
@@ -40,7 +38,6 @@ public class GlobalExceptionHandler {
      public ResponseEntity<CommonResponse> MethodArgumentNotValidExceptionHandler(MethodArgumentNotValidException exception)
     {
         CommonResponse response = new CommonResponse();
-
         response.info.code = StatusCode.Invalid_Input;
         response.info.message = exception.getMessage();
         exception.printStackTrace();
@@ -51,7 +48,6 @@ public class GlobalExceptionHandler {
      public ResponseEntity<CommonResponse> BadCredentialsExceptionHandler(BadCredentialsException exception)
     {
         CommonResponse response = new CommonResponse();
-
         response.info.code = StatusCode.Bad_Request;
         response.info.message = exception.getMessage();
         exception.printStackTrace();
@@ -62,7 +58,6 @@ public class GlobalExceptionHandler {
     public ResponseEntity<CommonResponse> ExcepitonHandler(Exception exception)
     {
         CommonResponse response = new CommonResponse();
-
         response.info.code = StatusCode.Server_Error;
         // Sorry for the joke because I am bored and can't think of anything else and kind a procastinating too
         response.info.message = "Well! bad luck because I also don't what happened there";

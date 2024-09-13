@@ -11,7 +11,6 @@ import java.util.UUID;
 @NoArgsConstructor
 @Table(name = "app_user")
 public class User {
-
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
     private UUID id;
@@ -20,6 +19,7 @@ public class User {
     @Column(nullable = true, unique = true)
     private String email;
     private String password;
+    @Enumerated(EnumType.STRING)
+    private Provider provider;
     private String role;
-
 }

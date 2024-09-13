@@ -13,7 +13,6 @@ import java.time.LocalDateTime;
 @NoArgsConstructor
 @AllArgsConstructor
 public class JwtRequest {
-
     private String name;
     private String password;
     private String captchaId;

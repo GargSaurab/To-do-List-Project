@@ -9,7 +9,6 @@ import java.util.UUID;
 
 @Data
 public class ToDoDto {
-
     private int id;
     private String task;
     private String description;
@@ -20,5 +19,4 @@ public class ToDoDto {
     private LocalTime endTime;
     private Frequency frequency;
     private UUID userId;
-
 }

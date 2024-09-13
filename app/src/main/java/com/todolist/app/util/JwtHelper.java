@@ -17,10 +17,8 @@ import java.util.function.Function;
 
 @Component
 public class JwtHelper{
-
     // token's expiration time
     private static final long tokenValidity = 3600000;
-
     // payload encryption
     private final SecretKey jwtSecret = Keys.secretKeyFor(SignatureAlgorithm.HS256);
 
@@ -35,12 +33,10 @@ public class JwtHelper{
     {
         return getClaimFromToken(token, Claims::getExpiration);
     }
-
     // Retrieves Claims from token
     public <T> T getClaimFromToken(String token, Function<Claims, T> claimsRsolver)
     {
         final Claims claims = getAllClaimsFromToken(token);
-
         return claimsRsolver.apply(claims);
     }
 
@@ -55,7 +51,6 @@ public class JwtHelper{
     public Boolean isTokenExpired(String token)
     {
         final Date expiration = getExpirationDateFromToken(token);
-
         return expiration.before(new Date());
     }
 
@@ -64,17 +59,13 @@ public class JwtHelper{
     {
          Map<String, Object> claims = new HashMap<>();
          claims.put("msg", "It's a useless token nothing to see here, shuu!!");
-
          if(userDetails instanceof UserCustomDetails customDetails)
          {
              User user = customDetails.getUser();
-
              return doGenerationToken(claims, userDetails.getUsername(), user);
          }else {
-
              throw new IllegalArgumentException("Unsupported UserDetails implementation");
          }
-
     }
 
     // Sets all clains and data in token
@@ -84,6 +75,7 @@ public class JwtHelper{
                 .setClaims(claims)
                 .setSubject(subject)
                 .setId(user.getId().toString())
+                .setIssuer("ToDo App")
                 .setIssuedAt(new Date(System.currentTimeMillis()))
                 .setExpiration(new Date(System.currentTimeMillis() + tokenValidity))
                 .signWith(jwtSecret)
@@ -94,7 +86,6 @@ public class JwtHelper{
     public Boolean validateToken(String token, UserDetails userDetails)
     {
         final String username = getUsernameFromToken(token);
-
         return (username.equals(userDetails.getUsername()) && !isTokenExpired(token));
     }
 
@@ -102,7 +93,6 @@ public class JwtHelper{
     public String extractId(String token)
     {
        String id = getClaimFromToken(token.substring(7), Claims::getId);
-
         return id;
     }
 }

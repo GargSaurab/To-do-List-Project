@@ -7,6 +7,7 @@ import com.todolist.app.dto.ToDoDto;
 import com.todolist.app.dto.ToDoRequest;
 import com.todolist.app.service.TodoService;
 import com.todolist.app.util.JwtHelper;
+import com.todolist.app.util.Utility;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
@@ -27,51 +28,38 @@ public class ToDoController {
     // thread safety, security and simplicity.
     // Constructor Injection also allows it.
 
-     @GetMapping("/todolist")
+    @GetMapping("/todolist")
     public ResponseEntity<CommonResponse> getTodoList(HttpServletRequest request)
     {
-          CommonResponse response = new CommonResponse();
           String id = jwtHelper.extractId(request.getHeader("Authorization"));
           List<ToDoDto> todos = tdSrv.getTodoList(UUID.fromString(id));
-          return new ResponseEntity(todos, HttpStatus.OK);
-
+         CommonResponse response = Utility.success("Successfull", todos);
+          return new ResponseEntity(response, HttpStatus.OK);
     }
 
     @PostMapping("/addTodo")
     public ResponseEntity<CommonResponse> addTodo(@Valid @RequestBody ToDoRequest toDoRequest, HttpServletRequest request)
     {
         toDoRequest.setUserId(UUID.fromString(jwtHelper.extractId(request.getHeader("Authorization"))));
-        CommonResponse response = new CommonResponse();
-
             tdSrv.addToDo(toDoRequest);
-            response.info.code = StatusCode.Success;
-            response.info.message = "Todo is saved";
+            CommonResponse response = Utility.success("Todo is saved", null);
             return ResponseEntity.ok(response);
-
     }
 
     @PostMapping("/removeTodo")
     public ResponseEntity<CommonResponse> removeTodo(@RequestParam int id)
     {
-        CommonResponse response = new CommonResponse();
-
-
             tdSrv.removeTodo(id);
-            response.info.code = StatusCode.Success;
-            response.info.message = "Todo is removed";
+            CommonResponse response = Utility.success("Todo is removed");
             return ResponseEntity.ok(response);
-
     }
 
     @PostMapping("/updateTodo")
     public ResponseEntity<CommonResponse> updateTodo(@Valid @RequestBody ToDoDto toDoDto)
     {
-        CommonResponse response = new CommonResponse();
-
-            tdSrv.updateTodo(toDoDto);
-            response.info.code = StatusCode.Success;
-            response.info.message = "Todo is updated";
-            return ResponseEntity.ok(response);
+        tdSrv.updateTodo(toDoDto);
+        CommonResponse response = Utility.success( "Todo is updated");
+        return ResponseEntity.ok(response);
 
     }
 

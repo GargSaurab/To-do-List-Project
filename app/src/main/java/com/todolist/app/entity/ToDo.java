@@ -14,10 +14,8 @@ import java.time.LocalTime;
 @NoArgsConstructor
 @Table(name = "app_todo")
 public class ToDo {
-
     @PrePersist
     public void prePersist(){
-
         if(startTime == null)
         {
             startTime = LocalTime.now();
