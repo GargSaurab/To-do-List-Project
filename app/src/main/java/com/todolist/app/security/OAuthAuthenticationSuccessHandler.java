@@ -1,5 +1,14 @@
 package com.todolist.app.security;
 
+import java.io.IOException;
+import java.util.Map;
+
+import org.springframework.context.annotation.Configuration;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.oauth2.client.authentication.OAuth2AuthenticationToken;
+import org.springframework.security.oauth2.core.user.OAuth2User;
+import org.springframework.security.web.authentication.AuthenticationSuccessHandler;
+
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.todolist.app.dao.UserRepository;
 import com.todolist.app.entity.Provider;
@@ -7,18 +16,11 @@ import com.todolist.app.entity.User;
 import com.todolist.app.entity.UserCustomDetails;
 import com.todolist.app.util.JwtHelper;
 import com.todolist.app.util.LogUtil;
+
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import lombok.RequiredArgsConstructor;
-import org.springframework.context.annotation.Configuration;
-import org.springframework.security.core.Authentication;
-import org.springframework.security.oauth2.client.authentication.OAuth2AuthenticationToken;
-import org.springframework.security.oauth2.core.user.OAuth2User;
-import org.springframework.security.web.authentication.AuthenticationSuccessHandler;
-
-import java.io.IOException;
-import java.util.Map;
 
 @Configuration
 @RequiredArgsConstructor
@@ -26,6 +28,12 @@ public class OAuthAuthenticationSuccessHandler implements AuthenticationSuccessH
 
     private final JwtHelper jwtHelper;
     private final UserRepository userRepository;
+
+    /**
+     * This class is responsible for handling the OAuth2 login success response.
+     * This class is responsible for generating a JWT token and returning it to the client.
+     * This class is a part of the Spring Security OAuth2 configuration.
+     */
 
     @Override
     public void onAuthenticationSuccess(HttpServletRequest request, HttpServletResponse response, Authentication authentication) throws IOException, ServletException {
@@ -45,7 +53,6 @@ public class OAuthAuthenticationSuccessHandler implements AuthenticationSuccessH
                     return userRepository.save(newUser);
                 });
         String token = jwtHelper.generateToken(new UserCustomDetails(user));
-
         LogUtil.info(OAuthAuthenticationSuccessHandler.class,token);
         response.setContentType("application/json");
         response.setCharacterEncoding("UTF-8");

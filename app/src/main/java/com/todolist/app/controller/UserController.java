@@ -24,7 +24,11 @@ public class UserController {
 
     private final JwtHelper jwtHelper;
 
-    // Register/Adds the user
+    /**
+     * Register/Adds the user
+     * @param registerUser The user's information
+     * @return Success Message
+     */
     @PostMapping("/register")
      public ResponseEntity<CommonResponse> register(@Valid @RequestBody  UserRequest registerUser)
     {
@@ -33,7 +37,12 @@ public class UserController {
             return new ResponseEntity<>(response, HttpStatus.OK);
     }
 
-    // User can Reset the password
+    /**
+     * User can Reset the password
+     * @param userPasswordReset The passwordReset object which contains the old password and the new password
+     * @param request The HttpServletRequest to fetch the jwt
+     * @return Success Message
+     */
     @PostMapping("/resetPassword")
     public ResponseEntity<CommonResponse> resetPassword(@Valid @RequestBody PasswordReset userPasswordReset, HttpServletRequest request){
         // Fetching id from jwt
@@ -44,7 +53,11 @@ public class UserController {
         return new ResponseEntity<>(response, HttpStatus.OK);
     }
 
-    // User can see there profile
+    /**
+     * User can see there profile
+     * @param request The HttpServletRequest to fetch the jwt
+     * @return User's data
+     */
     @GetMapping("/viewProfile")
     public ResponseEntity<CommonResponse> viewProfile(HttpServletRequest request)
     {

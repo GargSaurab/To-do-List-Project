@@ -28,39 +28,60 @@ public class ToDoController {
     // thread safety, security and simplicity.
     // Constructor Injection also allows it.
 
+    /**
+     * Returns the list of todos for the current user
+     * @param request the HttpServletRequest
+     * @return a ResponseEntity containing a CommonResponse with a list of ToDoDto
+     */
     @GetMapping("/todolist")
     public ResponseEntity<CommonResponse> getTodoList(HttpServletRequest request)
     {
-          String id = jwtHelper.extractId(request.getHeader("Authorization"));
-          List<ToDoDto> todos = tdSrv.getTodoList(UUID.fromString(id));
-         CommonResponse response = Utility.success("Successfull", todos);
-          return new ResponseEntity(response, HttpStatus.OK);
+        String id = jwtHelper.extractId(request.getHeader("Authorization"));
+        List<ToDoDto> todos = tdSrv.getTodoList(UUID.fromString(id));
+        CommonResponse response = Utility.success("Successfull", todos);
+        return new ResponseEntity(response, HttpStatus.OK);
     }
 
+    /**
+     * Adds a new todo to the list
+     * @param toDoRequest the new todo
+     * @param request the HttpServletRequest
+     * @return a ResponseEntity containing a CommonResponse with a success message
+     */
     @PostMapping("/addTodo")
     public ResponseEntity<CommonResponse> addTodo(@Valid @RequestBody ToDoRequest toDoRequest, HttpServletRequest request)
     {
+        // Extract the user id from the JWT token
         toDoRequest.setUserId(UUID.fromString(jwtHelper.extractId(request.getHeader("Authorization"))));
-            tdSrv.addToDo(toDoRequest);
-            CommonResponse response = Utility.success("Todo is saved", null);
-            return ResponseEntity.ok(response);
+        tdSrv.addToDo(toDoRequest);
+        CommonResponse response = Utility.success("Todo is saved", null);
+        return ResponseEntity.ok(response);
     }
 
+    /**
+     * Removes a todo from the list
+     * @param id the id of the todo to remove
+     * @return a ResponseEntity containing a CommonResponse with a success message
+     */
     @PostMapping("/removeTodo")
     public ResponseEntity<CommonResponse> removeTodo(@RequestParam int id)
     {
-            tdSrv.removeTodo(id);
-            CommonResponse response = Utility.success("Todo is removed");
-            return ResponseEntity.ok(response);
+        tdSrv.removeTodo(id);
+        CommonResponse response = Utility.success("Todo is removed");
+        return ResponseEntity.ok(response);
     }
 
+    /**
+     * Updates a todo in the list
+     * @param toDoDto the new todo
+     * @return a ResponseEntity containing a CommonResponse with a success message
+     */
     @PostMapping("/updateTodo")
     public ResponseEntity<CommonResponse> updateTodo(@Valid @RequestBody ToDoDto toDoDto)
     {
         tdSrv.updateTodo(toDoDto);
         CommonResponse response = Utility.success( "Todo is updated");
         return ResponseEntity.ok(response);
-
     }
 
 }

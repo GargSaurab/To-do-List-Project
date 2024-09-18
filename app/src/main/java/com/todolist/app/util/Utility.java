@@ -27,14 +27,14 @@ public class Utility {
 
     public static CommonResponse success(String message){
         CommonResponse response = new CommonResponse();
-        response.info.code = StatusCode.Success;
+        response.info.code = StatusCode.SUCCESS;
         response.info.message = message;
         return response;
     }
 
     public static CommonResponse success(String message, Object data){
         CommonResponse response = new CommonResponse();
-        response.info.code = StatusCode.Success;
+        response.info.code = StatusCode.SUCCESS;
         response.info.message = message;
         response.data = data;
         return response;
@@ -42,7 +42,7 @@ public class Utility {
 
     public static CommonResponse error(String message){
         CommonResponse response = new CommonResponse();
-        response.info.code = StatusCode.Server_Error;
+        response.info.code = StatusCode.SERVER_ERROR;
         response.info.message = "Error";
         if(!isEmpty(message)){
             response.info.message = message;

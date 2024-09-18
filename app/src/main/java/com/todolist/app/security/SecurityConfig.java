@@ -1,9 +1,5 @@
 package com.todolist.app.security;
 
-import com.todolist.app.filter.JwtAuthenticationFilter;
-import com.todolist.app.util.JwtAuthenticationEntryPoint;
-import com.todolist.app.util.LogUtil;
-import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
@@ -14,6 +10,12 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
+
+import com.todolist.app.filter.JwtAuthenticationFilter;
+import com.todolist.app.util.JwtAuthenticationEntryPoint;
+import com.todolist.app.util.LogUtil;
+
+import lombok.RequiredArgsConstructor;
 
 @Configuration
 @EnableWebSecurity// This annotation helps in defining the access control of speicific methods or service to specific user/roles
@@ -52,7 +54,7 @@ public class SecurityConfig {
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception{
         LogUtil.info(SecurityFilterChain.class,"Security filter chain => " + http.toString());
         http.csrf(csrf -> csrf.disable())
-                .authorizeHttpRequests(request -> request.requestMatchers("/auth/**", "/oauth2/**")
+                .authorizeHttpRequests(request -> request.requestMatchers("/auth/**", "/oauth2/**", "/login/**")
                         .permitAll()
                         .requestMatchers("/user/add").permitAll()
                         .anyRequest().authenticated()

@@ -5,47 +5,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="aaa49c0d-b302-4759-aab5-cb70b81b1ada" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/todolist/app/entity/Provider.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/todolist/app/security/OAuthAuthenticationSuccessHandler.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/todolist/app/aop/GlobalExceptionHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/todolist/app/aop/GlobalExceptionHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/todolist/app/config/SecurityBeans.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/todolist/app/security/SecurityBeans.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/todolist/app/config/SecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/todolist/app/security/SecurityConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/todolist/app/aop/LoggingAspect.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/todolist/app/aop/LoggingAspect.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/todolist/app/controller/AuthController.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/todolist/app/controller/AuthController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/todolist/app/controller/ToDoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/todolist/app/controller/ToDoController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/todolist/app/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/todolist/app/controller/UserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/todolist/app/customAnnotation/NonBlank.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/todolist/app/customAnnotation/NonBlank.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/todolist/app/customAnnotation/NonBlankValidator.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/todolist/app/customAnnotation/NonBlankValidator.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/todolist/app/customAnnotation/PatternValidator.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/todolist/app/customAnnotation/PatternValidator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/todolist/app/customAnnotation/ValidPattern.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/todolist/app/customAnnotation/ValidPattern.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/todolist/app/customException/InvalidInputException.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/todolist/app/customException/InvalidInputException.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/todolist/app/customException/ResourceNotFoundException.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/todolist/app/customException/ResourceNotFoundException.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/todolist/app/dao/ToDoRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/todolist/app/dao/ToDoRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/todolist/app/dao/UserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/todolist/app/dao/UserRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/todolist/app/dto/CommonResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/todolist/app/dto/CommonResponse.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/todolist/app/dto/CustomResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/todolist/app/dto/CustomResponse.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/todolist/app/dto/GroupDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/todolist/app/dto/GroupDto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/todolist/app/dto/JwtRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/todolist/app/dto/JwtRequest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/todolist/app/dto/PasswordReset.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/todolist/app/dto/PasswordReset.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/todolist/app/dto/StatusCode.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/todolist/app/dto/StatusCode.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/todolist/app/dto/ToDoDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/todolist/app/dto/ToDoDto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/todolist/app/dto/ToDoRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/todolist/app/dto/ToDoRequest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/todolist/app/dto/UserDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/todolist/app/dto/UserDto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/todolist/app/dto/UserRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/todolist/app/dto/UserRequest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/todolist/app/entity/Frequency.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/todolist/app/entity/Frequency.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/todolist/app/entity/Group.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/todolist/app/entity/Group.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/todolist/app/entity/ToDo.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/todolist/app/entity/ToDo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/todolist/app/entity/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/todolist/app/entity/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/todolist/app/entity/UserCustomDetails.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/todolist/app/entity/UserCustomDetails.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/todolist/app/filter/JwtAuthenticationFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/todolist/app/filter/JwtAuthenticationFilter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/todolist/app/service/CustomUserDetailsService.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/todolist/app/service/CustomUserDetailsService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/todolist/app/service/TodoService.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/todolist/app/service/TodoService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/todolist/app/service/TodoServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/todolist/app/service/TodoServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/todolist/app/service/UserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/todolist/app/service/UserServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/todolist/app/util/JwtAuthenticationEntryPoint.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/todolist/app/util/JwtAuthenticationEntryPoint.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/todolist/app/util/JwtHelper.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/todolist/app/util/JwtHelper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/todolist/app/security/OAuthAuthenticationSuccessHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/todolist/app/security/OAuthAuthenticationSuccessHandler.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/todolist/app/util/Utility.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/todolist/app/util/Utility.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/resources/application.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/resources/application.yaml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -106,7 +77,7 @@
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.2",
     "run.code.analysis.last.selected.profile": "pProject Default",
-    "settings.editor.selected.configurable": "preferences.pluginManager"
+    "settings.editor.selected.configurable": "settings.sync"
   }
 }]]></component>
   <component name="RecentsManager">

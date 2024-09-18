@@ -1,11 +1,15 @@
 package com.todolist.app.dto;
 
 public interface StatusCode {
-    int Success = 200;
-    int Created = 201;
-    int Server_Error = 500;
-    int Bad_Request = 400;
-    int NOt_Found = 404;
-    int Invalid_Input = 402;
-    int Unauthorized = 401;
+    int SUCCESS = 200;
+    int CREATED = 201;
+    int NO_CONTENT = 204;
+    int BAD_REQUEST = 400;
+    int UNAUTHORIZED = 401;
+    int FORBIDDEN = 403;
+    int NOT_FOUND = 404;
+    int CONFLICT = 409;
+    int UNPROCESSABLE_ENTITY = 422;
+    int SERVER_ERROR = 500;
 }
+
