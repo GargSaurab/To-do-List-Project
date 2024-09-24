@@ -7,6 +7,7 @@ import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 
+import com.todolist.app.customException.EmailSendingException;
 import com.todolist.app.customException.InvalidInputException;
 import com.todolist.app.customException.ResourceNotFoundException;
 import com.todolist.app.dto.CommonResponse;
@@ -28,6 +29,15 @@ public class GlobalExceptionHandler {
     public ResponseEntity<CommonResponse> InvalidInputExceptionHandler(InvalidInputException exception) {
         CommonResponse response = new CommonResponse();
         response.info.code = StatusCode.BAD_REQUEST;
+        response.info.message = exception.getMessage();
+        exception.printStackTrace();
+        return new ResponseEntity<>(response, HttpStatus.OK);
+    }
+
+    @ExceptionHandler(EmailSendingException.class)
+    public ResponseEntity<CommonResponse> EmailSendingExceptionHandler(EmailSendingException exception) {
+        CommonResponse response = new CommonResponse();
+        response.info.code = exception.getStatusCode();
         response.info.message = exception.getMessage();
         exception.printStackTrace();
         return new ResponseEntity<>(response, HttpStatus.OK);

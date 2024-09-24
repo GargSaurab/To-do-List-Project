@@ -27,6 +27,7 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
     private final JwtHelper jwtHelper;
     private final UserDetailsService userDetailsService;
 
+    @SuppressWarnings("null")
     @Override
     protected boolean shouldNotFilter(HttpServletRequest request) throws ServletException {
         
@@ -38,6 +39,7 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
     }
 
     // Fetching barer token from Authroziation header
+    @SuppressWarnings("null")
     @Override
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain)
             throws ServletException, IOException {

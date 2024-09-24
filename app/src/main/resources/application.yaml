@@ -26,9 +26,21 @@ spring:
            clientSecret: ${GOOGLE_CLIENT_SECRET}
            scope: ${GOOGLE_SCOPE}
 
+  mail:
+    host: smtp.gmail.com
+    port: 587
+    username: ${EMAIL}
+    password: ${EMAIL_PASSWORD} 
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
 
 user:
   validation:
     usernamePattern: "^[a-zA-Z][a-zA-Z0-9_-]{2,19}$"
     emailIdPattern: "^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,6}$"
     passwordPattern: "^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[@$!%*?&])[A-Za-z\\d@$!%*?&]{8,}$"
+

@@ -35,6 +35,7 @@ public class OAuthAuthenticationSuccessHandler implements AuthenticationSuccessH
      * This class is a part of the Spring Security OAuth2 configuration.
      */
 
+    @SuppressWarnings("null")
     @Override
     public void onAuthenticationSuccess(HttpServletRequest request, HttpServletResponse response, Authentication authentication) throws IOException, ServletException {
         if (authentication instanceof OAuth2AuthenticationToken) {

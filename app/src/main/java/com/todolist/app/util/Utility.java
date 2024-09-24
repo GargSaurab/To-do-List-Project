@@ -3,12 +3,24 @@ package com.todolist.app.util;
 import com.todolist.app.dto.CommonResponse;
 import com.todolist.app.dto.StatusCode;
 
+import jakarta.servlet.http.HttpServletRequest;
+
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.Collection;
 import java.util.Map;
+import java.util.UUID;
+
+import org.springframework.beans.factory.annotation.Autowired;
 
 public class Utility {
+
+    @Autowired
+    private static JwtHelper jwtHelper;
+
+    public static UUID getUserId(HttpServletRequest request){
+        return UUID.fromString(jwtHelper.extractId(request.getHeader("Authorization")));
+    }
 
     // Used as a measure for endDate/time it will be handled at frontend but still for safety is
     // checked

@@ -1,29 +1,30 @@
 package com.todolist.app.controller;
 
-import com.todolist.app.customException.ResourceNotFoundException;
+import java.util.List;
+
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
+
 import com.todolist.app.dto.CommonResponse;
-import com.todolist.app.dto.StatusCode;
 import com.todolist.app.dto.ToDoDto;
 import com.todolist.app.dto.ToDoRequest;
 import com.todolist.app.service.TodoService;
-import com.todolist.app.util.JwtHelper;
 import com.todolist.app.util.Utility;
+
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.*;
-
-import java.util.List;
-import java.util.UUID;
 
 @RestController
 @RequestMapping("/todo")
 @RequiredArgsConstructor // for constructor injection makes the injection confirmed
 public class ToDoController {
 
-    private final JwtHelper jwtHelper;
     private final TodoService tdSrv; // makes the class immutable which helps in
     // thread safety, security and simplicity.
     // Constructor Injection also allows it.
@@ -36,10 +37,9 @@ public class ToDoController {
     @GetMapping("/todolist")
     public ResponseEntity<CommonResponse> getTodoList(HttpServletRequest request)
     {
-        String id = jwtHelper.extractId(request.getHeader("Authorization"));
-        List<ToDoDto> todos = tdSrv.getTodoList(UUID.fromString(id));
+        List<ToDoDto> todos = tdSrv.getTodoList(Utility.getUserId(request));
         CommonResponse response = Utility.success("Successfull", todos);
-        return new ResponseEntity(response, HttpStatus.OK);
+        return ResponseEntity.ok(response);
     }
 
     /**
@@ -52,7 +52,7 @@ public class ToDoController {
     public ResponseEntity<CommonResponse> addTodo(@Valid @RequestBody ToDoRequest toDoRequest, HttpServletRequest request)
     {
         // Extract the user id from the JWT token
-        toDoRequest.setUserId(UUID.fromString(jwtHelper.extractId(request.getHeader("Authorization"))));
+        toDoRequest.setUserId(Utility.getUserId(request));
         tdSrv.addToDo(toDoRequest);
         CommonResponse response = Utility.success("Todo is saved", null);
         return ResponseEntity.ok(response);
