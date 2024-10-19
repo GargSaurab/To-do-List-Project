@@ -1,7 +1,9 @@
 package com.todolist.app.service;
 
+import com.todolist.app.model.OtpRequest;
+
 public interface OtpService {
 
-    String sendOtp(String email);
+    String sendOtp(OtpRequest request);
 
 }

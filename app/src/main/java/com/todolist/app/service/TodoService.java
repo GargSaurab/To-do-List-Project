@@ -1,8 +1,9 @@
 package com.todolist.app.service;
 
-import com.todolist.app.dto.ToDoDto;
-import com.todolist.app.dto.ToDoRequest;
 import org.springframework.stereotype.Service;
+
+import com.todolist.app.model.ToDoDto;
+import com.todolist.app.model.ToDoRequest;
 
 import java.util.List;
 import java.util.UUID;

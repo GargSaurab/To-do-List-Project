@@ -7,8 +7,8 @@ import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.stereotype.Service;
 
 import com.todolist.app.customException.EmailSendingException;
-import com.todolist.app.dto.StatusCode;
 import com.todolist.app.util.LogUtil;
+import com.todolist.app.util.StatusCode;
 
 import jakarta.mail.MessagingException;
 import jakarta.mail.internet.MimeMessage;
@@ -26,10 +26,12 @@ public class EmailService {
 
             MimeMessageHelper helper = new MimeMessageHelper(message, true);
 
-            helper.setTo(email);
+            LogUtil.info(EmailService.class, "Sending email to: " + email);
+
+            helper.setTo(email.trim());
             helper.setSubject(subject);
             helper.setText(body, true);
-            helper.setFrom("noreply@todoapp.com");
+            helper.setFrom("ToDoApp <no-reply@todoapp.com>");
             javaMailSender.send(message);
             LogUtil.info(EmailService.class, "Email sent successfully");
         } catch (MessagingException e) {

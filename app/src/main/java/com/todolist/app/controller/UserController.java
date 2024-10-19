@@ -7,11 +7,12 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.todolist.app.dto.CommonResponse;
-import com.todolist.app.dto.PasswordReset;
-import com.todolist.app.dto.UserDto;
-import com.todolist.app.dto.UserRequest;
+import com.todolist.app.model.PasswordReset;
+import com.todolist.app.model.UserDto;
+import com.todolist.app.model.UserRequest;
 import com.todolist.app.service.UserService;
+import com.todolist.app.util.CommonResponse;
+import com.todolist.app.util.CustomResponse;
 import com.todolist.app.util.LogUtil;
 import com.todolist.app.util.Utility;
 
@@ -32,10 +33,10 @@ public class UserController {
      * @param registerUser The user's information
      * @return Success Message
      */
-    @PostMapping("/register")
-    public ResponseEntity<CommonResponse> register(@Valid @RequestBody UserRequest registerUser) {
+    @PostMapping("/signup")
+    public ResponseEntity<CustomResponse> signUp(@Valid @RequestBody UserRequest registerUser) {
         userSrv.register(registerUser);
-        CommonResponse response = Utility.success("User got registered");
+        CustomResponse response = Utility.success("User got registered");
         return ResponseEntity.ok(response);
     }
 
@@ -48,13 +49,13 @@ public class UserController {
      * @return Success Message
      */
     @PostMapping("/resetPassword")
-    public ResponseEntity<CommonResponse> resetPassword(@Valid @RequestBody PasswordReset userPasswordReset,
+    public ResponseEntity<CustomResponse> resetPassword(@Valid @RequestBody PasswordReset userPasswordReset,
             HttpServletRequest request) {
         // Fetching id from jwt
         userPasswordReset.setId(Utility.getUserId(request));
         LogUtil.debug(UserController.class, "UserController's resetPassword api starting");
         userSrv.resetPassword(userPasswordReset);
-        CommonResponse response = Utility.success("Password got reset");
+        CustomResponse response = Utility.success("Password got reset");
         return ResponseEntity.ok(response);
     }
 

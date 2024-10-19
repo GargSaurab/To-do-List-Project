@@ -6,6 +6,10 @@ spring:
     url: jdbc:mysql://localhost:3306/todolistApp?createDatabaseIfNotExist=true&useSSL=false&allowPublicKeyRetrieval=true
     username: root
     password: Saurabh88
+  data:
+    redis:
+      host: localhost  # Redis server host (default: localhost)
+      port: 6379       # Redis server port (default: 6379)  
   jpa:
     properties:
       hibernate:
@@ -37,10 +41,14 @@ spring:
           auth: true
           starttls:
             enable: true
+        debug: true        
 
 user:
   validation:
     usernamePattern: "^[a-zA-Z][a-zA-Z0-9_-]{2,19}$"
     emailIdPattern: "^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,6}$"
     passwordPattern: "^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[@$!%*?&])[A-Za-z\\d@$!%*?&]{8,}$"
+
+redis:
+  default-ttl: 240    
 

@@ -21,12 +21,13 @@ public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
     private UUID id;
-    @Column(nullable = true, unique = true)
+    @Column(nullable = false, unique = true)
     private String username;
-    @Column(nullable = true, unique = true)
+    @Column(nullable = false, unique = true)
     private String email;
     private String password;
     @Enumerated(EnumType.STRING)
     private Provider provider;
+    private boolean emailVerified;
     private String role;
 }

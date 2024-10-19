@@ -3,10 +3,11 @@ package com.todolist.app.service;
 import com.todolist.app.customException.InvalidInputException;
 import com.todolist.app.customException.ResourceNotFoundException;
 import com.todolist.app.dao.UserRepository;
-import com.todolist.app.dto.PasswordReset;
-import com.todolist.app.dto.UserDto;
-import com.todolist.app.dto.UserRequest;
 import com.todolist.app.entity.User;
+import com.todolist.app.model.PasswordReset;
+import com.todolist.app.model.UserDto;
+import com.todolist.app.model.UserRequest;
+
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import org.modelmapper.ModelMapper;

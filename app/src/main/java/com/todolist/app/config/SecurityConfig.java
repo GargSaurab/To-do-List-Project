@@ -1,4 +1,4 @@
-package com.todolist.app.security;
+package com.todolist.app.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -12,6 +12,7 @@ import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
 import com.todolist.app.filter.JwtAuthenticationFilter;
+import com.todolist.app.security.OAuthAuthenticationSuccessHandler;
 import com.todolist.app.util.JwtAuthenticationEntryPoint;
 import com.todolist.app.util.LogUtil;
 

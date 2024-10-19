@@ -6,17 +6,37 @@
   <component name="ChangeListManager">
     <list default="true" id="aaa49c0d-b302-4759-aab5-cb70b81b1ada" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.vscode/launch.json" beforeDir="false" afterPath="$PROJECT_DIR$/.vscode/launch.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Documents/Todo List Project Documentation.docx" beforeDir="false" afterPath="$PROJECT_DIR$/Documents/Todo List Project Documentation.docx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/todolist/app/aop/GlobalExceptionHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/todolist/app/aop/GlobalExceptionHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/todolist/app/aop/LoggingAspect.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/todolist/app/aop/LoggingAspect.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/todolist/app/controller/AuthController.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/todolist/app/controller/AuthController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/todolist/app/controller/ToDoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/todolist/app/controller/ToDoController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/todolist/app/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/todolist/app/controller/UserController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/todolist/app/customAnnotation/NonBlank.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/todolist/app/customAnnotation/NonBlank.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/todolist/app/customAnnotation/NonBlankValidator.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/todolist/app/customAnnotation/NonBlankValidator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/todolist/app/customAnnotation/PatternValidator.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/todolist/app/customAnnotation/PatternValidator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/todolist/app/dto/StatusCode.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/todolist/app/dto/StatusCode.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/todolist/app/security/OAuthAuthenticationSuccessHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/todolist/app/security/OAuthAuthenticationSuccessHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/todolist/app/dto/CommonResponse.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/todolist/app/dto/CustomResponse.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/todolist/app/dto/GroupDto.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/todolist/app/dto/JwtRequest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/todolist/app/dto/JwtResponse.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/todolist/app/dto/PasswordReset.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/todolist/app/dto/ResponseInfo.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/todolist/app/dto/StatusCode.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/todolist/app/dto/ToDoDto.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/todolist/app/dto/ToDoRequest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/todolist/app/dto/UserDto.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/todolist/app/dto/UserRequest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/todolist/app/entity/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/todolist/app/entity/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/todolist/app/security/SecurityConfig.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/todolist/app/service/EmailService.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/todolist/app/service/EmailService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/todolist/app/service/OtpService.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/todolist/app/service/OtpService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/todolist/app/service/OtpServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/todolist/app/service/OtpServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/todolist/app/service/TodoService.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/todolist/app/service/TodoService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/todolist/app/service/TodoServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/todolist/app/service/TodoServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/todolist/app/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/todolist/app/service/UserService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/todolist/app/service/UserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/todolist/app/service/UserServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/todolist/app/util/OtpUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/todolist/app/util/OtpUtil.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/todolist/app/util/Utility.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/todolist/app/util/Utility.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/resources/application.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/resources/application.yaml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -66,7 +86,8 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "ASKED_ADD_EXTERNAL_FILES": "true",
-    "Application.ToDoApplication.executor": "Run",
+    "Application.ToDoApplication.executor": "Debug",
+    "JUnit.RedisTest.testRedis.executor": "Debug",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "com.codeium.enabled": "true",
     "git-widget-placeholder": "main",
@@ -87,7 +108,7 @@
       <recent name="com.todolist.app.entity" />
     </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="JUnit.RedisTest.testRedis">
     <configuration name="ToDoApplication" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="com.todolist.app.TodoApplication" />
       <module name="app" />
@@ -95,6 +116,27 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="RedisTest.testRedis" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="app" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.todolist.app.service.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.todolist.app.service" />
+      <option name="MAIN_CLASS_NAME" value="com.todolist.app.service.RedisTest" />
+      <option name="METHOD_NAME" value="testRedis" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JUnit.RedisTest.testRedis" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -130,6 +172,16 @@
         <line-breakpoint type="java-line">
           <url>jar://$MAVEN_REPOSITORY$/org/springframework/security/spring-security-core/6.3.1/spring-security-core-6.3.1-sources.jar!/org/springframework/security/authentication/dao/DaoAuthenticationProvider.java</url>
           <option name="timeStamp" value="1" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/test/java/com/todolist/app/service/RedisTest.java</url>
+          <line>17</line>
+          <option name="timeStamp" value="29" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/test/java/com/todolist/app/service/RedisTest.java</url>
+          <line>18</line>
+          <option name="timeStamp" value="30" />
         </line-breakpoint>
         <breakpoint type="java-exception">
           <properties class="com.todolist.app.customException.InvalidInputException" package="com.todolist.app.customException" />

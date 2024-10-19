@@ -1,10 +1,5 @@
 package com.todolist.app.util;
 
-import com.todolist.app.dto.CommonResponse;
-import com.todolist.app.dto.StatusCode;
-
-import jakarta.servlet.http.HttpServletRequest;
-
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.Collection;
@@ -12,11 +7,21 @@ import java.util.Map;
 import java.util.UUID;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UserDetailsService;
+
+import com.todolist.app.entity.User;
+import com.todolist.app.entity.UserCustomDetails;
+
+import jakarta.servlet.http.HttpServletRequest;
 
 public class Utility {
 
     @Autowired
     private static JwtHelper jwtHelper;
+
+    @Autowired
+    private static UserDetailsService userDetailsService;
 
     public static UUID getUserId(HttpServletRequest request){
         return UUID.fromString(jwtHelper.extractId(request.getHeader("Authorization")));
@@ -37,8 +42,19 @@ public class Utility {
         return true;
     }
 
-    public static CommonResponse success(String message){
-        CommonResponse response = new CommonResponse();
+    public static String getUsernameByEmail(String email){
+         UserDetails userDetails = userDetailsService.loadUserByUsername(email);
+          if(userDetails instanceof UserCustomDetails customDetails)
+         {
+             User user = customDetails.getUser();
+             return user.getUsername();
+         }else {
+             throw new IllegalArgumentException("Unsupported UserDetails implementation");
+         }
+    }
+
+    public static CustomResponse success(String message){
+        CustomResponse response = new CustomResponse();
         response.info.code = StatusCode.SUCCESS;
         response.info.message = message;
         return response;

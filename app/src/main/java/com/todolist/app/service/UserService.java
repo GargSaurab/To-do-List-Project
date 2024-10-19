@@ -1,9 +1,10 @@
 package com.todolist.app.service;
 
-import com.todolist.app.dto.PasswordReset;
-import com.todolist.app.dto.UserDto;
-import com.todolist.app.dto.UserRequest;
 import org.springframework.stereotype.Service;
+
+import com.todolist.app.model.PasswordReset;
+import com.todolist.app.model.UserDto;
+import com.todolist.app.model.UserRequest;
 
 import java.net.PasswordAuthentication;
 import java.util.UUID;

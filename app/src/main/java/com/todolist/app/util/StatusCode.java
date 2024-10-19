@@ -1,4 +1,4 @@
-package com.todolist.app.dto;
+package com.todolist.app.util;
 
 public interface StatusCode {
     int SUCCESS = 200;
@@ -11,5 +11,6 @@ public interface StatusCode {
     int CONFLICT = 409;
     int UNPROCESSABLE_ENTITY = 422;
     int SERVER_ERROR = 500;
+    int SERVICE_UNAVAILABLE = 503; 
 }
 

@@ -1,4 +1,4 @@
-package com.todolist.app.dto;
+package com.todolist.app.model;
 
 import com.todolist.app.customAnnotation.NonBlank;
 import com.todolist.app.entity.Frequency;

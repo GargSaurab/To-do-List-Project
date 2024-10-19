@@ -14,10 +14,11 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.todolist.app.dto.CommonResponse;
-import com.todolist.app.dto.JwtRequest;
-import com.todolist.app.dto.JwtResponse;
+import com.todolist.app.model.JwtRequest;
+import com.todolist.app.model.JwtResponse;
+import com.todolist.app.model.OtpRequest;
 import com.todolist.app.service.OtpService;
+import com.todolist.app.util.CustomResponse;
 import com.todolist.app.util.JwtHelper;
 import com.todolist.app.util.LogUtil;
 import com.todolist.app.util.Utility;
@@ -50,7 +51,7 @@ public class AuthController {
      * @return The Response containing the JWT token.
      */
     @PostMapping("/login")
-    public ResponseEntity<CommonResponse> login(@RequestBody @NonNull JwtRequest request) {
+    public ResponseEntity<CustomResponse> login(@RequestBody @NonNull JwtRequest request) {
         // autheticate user
         this.doAutheticate(request.getName(), request.getPassword());
         // get userDetails
@@ -62,14 +63,14 @@ public class AuthController {
                 .userName(userDetails.getUsername())
                 .time(LocalDateTime.now())
                 .build();
-        CommonResponse commonResponse = Utility.success("Successfull login", response);
-        return new ResponseEntity<>(commonResponse, HttpStatus.OK);
+                CustomResponse customResponse = Utility.success("Successfull login", response);
+        return new ResponseEntity<>(customResponse, HttpStatus.OK);
     }
 
     @PostMapping("/sendOtp")
-    public ResponseEntity<?> sendOtp(@RequestBody String email) { 
-        String otp = otpService.sendOtp(email);
-        CommonResponse response = Utility.success("Successfull", otp);
+    public ResponseEntity<CustomResponse> sendOtp(@RequestBody OtpRequest request) { 
+        String otpResponse = otpService.sendOtp(request);
+        CustomResponse response = Utility.success(otpResponse);
         return ResponseEntity.ok(response);
     }
 

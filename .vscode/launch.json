@@ -19,6 +19,13 @@
             "projectName": "app",
             "args": "",
             "envFile": "${workspaceFolder}/.env"
-        }
+        },
+        {
+            "type": "java",
+            "name": "Debug RedisTest",
+            "request": "launch",
+            "mainClass": "com.todolist.app.service.RedisTest",
+            "projectName": "app"
+          }
     ]
 }

@@ -10,10 +10,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.todolist.app.dto.CommonResponse;
-import com.todolist.app.dto.ToDoDto;
-import com.todolist.app.dto.ToDoRequest;
+import com.todolist.app.model.ToDoDto;
+import com.todolist.app.model.ToDoRequest;
 import com.todolist.app.service.TodoService;
+import com.todolist.app.util.CommonResponse;
+import com.todolist.app.util.CustomResponse;
 import com.todolist.app.util.Utility;
 
 import jakarta.servlet.http.HttpServletRequest;
@@ -64,10 +65,10 @@ public class ToDoController {
      * @return a ResponseEntity containing a CommonResponse with a success message
      */
     @PostMapping("/removeTodo")
-    public ResponseEntity<CommonResponse> removeTodo(@RequestParam int id)
+    public ResponseEntity<CustomResponse> removeTodo(@RequestParam int id)
     {
         tdSrv.removeTodo(id);
-        CommonResponse response = Utility.success("Todo is removed");
+        CustomResponse response = Utility.success("Todo is removed");
         return ResponseEntity.ok(response);
     }
 
@@ -77,10 +78,10 @@ public class ToDoController {
      * @return a ResponseEntity containing a CommonResponse with a success message
      */
     @PostMapping("/updateTodo")
-    public ResponseEntity<CommonResponse> updateTodo(@Valid @RequestBody ToDoDto toDoDto)
+    public ResponseEntity<CustomResponse> updateTodo(@Valid @RequestBody ToDoDto toDoDto)
     {
         tdSrv.updateTodo(toDoDto);
-        CommonResponse response = Utility.success( "Todo is updated");
+        CustomResponse response = Utility.success( "Todo is updated");
         return ResponseEntity.ok(response);
     }
 

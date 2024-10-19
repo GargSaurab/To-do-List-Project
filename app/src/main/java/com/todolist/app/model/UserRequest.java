@@ -1,9 +1,7 @@
-package com.todolist.app.dto;
+package com.todolist.app.model;
 
 import com.todolist.app.customAnnotation.ValidPattern;
 
-import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.NotNull;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
