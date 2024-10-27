@@ -1,5 +1,6 @@
 package com.todolist.app.controller;
 
+import java.io.ObjectInputFilter.Status;
 import java.time.LocalDateTime;
 
 import org.springframework.http.HttpStatus;
@@ -17,10 +18,13 @@ import org.springframework.web.bind.annotation.RestController;
 import com.todolist.app.model.JwtRequest;
 import com.todolist.app.model.JwtResponse;
 import com.todolist.app.model.OtpRequest;
+import com.todolist.app.model.VerifyOtpRequest;
+import com.todolist.app.model.VerifyOtpResponse;
 import com.todolist.app.service.OtpService;
 import com.todolist.app.util.CustomResponse;
 import com.todolist.app.util.JwtHelper;
 import com.todolist.app.util.LogUtil;
+import com.todolist.app.util.StatusCode;
 import com.todolist.app.util.Utility;
 
 import io.micrometer.common.lang.NonNull;
@@ -72,6 +76,20 @@ public class AuthController {
         String otpResponse = otpService.sendOtp(request);
         CustomResponse response = Utility.success(otpResponse);
         return ResponseEntity.ok(response);
+    }
+
+    @PostMapping("/verifyOtp")
+    public ResponseEntity<CustomResponse> verifyOtp(@RequestBody VerifyOtpRequest request) {
+        VerifyOtpResponse response = otpService.verifyOtp(request);
+        CustomResponse customResponse;
+        if(response.isVerified()) {
+            customResponse = Utility.success("Otp verified successfully", response);
+        }else if(response.isExpired()) {
+            customResponse = Utility.error("OTP has expired. Please request a new one.", StatusCode.DATA_EXPIRED, response);
+        }else{
+            customResponse = Utility.error("Invalid OTP", StatusCode.BAD_REQUEST, response);
+        }
+        return ResponseEntity.ok(customResponse);
     }
 
     /**

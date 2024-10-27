@@ -68,10 +68,30 @@ public class Utility {
         return response;
     }
 
-    public static CommonResponse error(String message){
+    public static CommonResponse error(String message, int code){
+        CommonResponse response = new CommonResponse();
+        if(!isEmpty(code)){
+            response.info.code = code;
+        }else{
+            response.info.code = StatusCode.SERVER_ERROR;
+        }
+        if(!isEmpty(message)){
+            response.info.message = message;
+        }else{
+            response.info.message = "Error";
+        }
+        return response;
+    }
+
+    public static CommonResponse error(String message, int code, Object data){
         CommonResponse response = new CommonResponse();
         response.info.code = StatusCode.SERVER_ERROR;
-        response.info.message = "Error";
+        response.data = data;
+        if(!isEmpty(code)){
+            response.info.code = code;
+        }else{
+            response.info.code = StatusCode.SERVER_ERROR;
+        }
         if(!isEmpty(message)){
             response.info.message = message;
         }else{
